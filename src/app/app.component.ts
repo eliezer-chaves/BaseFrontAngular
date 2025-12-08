@@ -16,4 +16,5 @@ export class AppComponent {
     // Opcional: monitorar mudanças do tema do sistema
     this.themeService.watchSystemTheme();
   }
+  
 }
