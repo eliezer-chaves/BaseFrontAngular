@@ -1,0 +1,224 @@
+@use 'variables' as *;
+
+body {
+  line-height: 1.2;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(16px, 1.2vw, 18px);
+  background-color: var(--bg);
+  color: var(--text-gray);
+}
+
+h1 {
+  color: var(--text-h1);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 35px);
+}
+
+h2 {
+  color: var(--text-h2);
+  font-weight: 400;
+  font-size: clamp(16px, 2vw, 20px);
+}
+
+/* ===========================
+   FORM / INPUTS
+=========================== */
+
+input {
+  height: 44px;
+}
+
+.ant-input {
+  border-radius: 4px;
+  padding: 10px !important;
+  color: var(--color-input);
+}
+
+.ant-input-affix-wrapper {
+  padding: 0 !important;
+}
+
+.ant-input-suffix {
+  margin: 10px;
+  font-size: 16px;
+
+  svg {
+    color: var(--input-suffix-color);
+  }
+}
+
+/* Labels */
+::ng-deep .ant-form-item-label > label,
+::ng-deep nz-form-label label {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--label-color) !important;
+  font-size: 14px !important;
+}
+
+.ant-form-vertical .ant-form-item-label,
+.ant-col-24.ant-form-item-label,
+.ant-col-xl-24.ant-form-item-label {
+  padding: 0 !important;
+}
+
+.ant-form-item {
+  margin: 0;
+}
+
+/* Botões */
+.ant-btn-primary {
+  height: 44px;
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 10px;
+  color: var(--btn-primary-text);
+  background: var(--btn-primary-bg);
+}
+
+/* Cards */
+.auth-card {
+  min-width: 340px;
+  max-width: 400px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: $padding-3 $padding-2;
+  border: solid 1px var(--card-border);
+}
+
+//links
+a.link-primary,
+a[routerLink] {
+  color: var(--link-color) !important;
+}
+
+/* Base para posicionar a mensagem */
+.ant-form-item .ant-form-item-control {
+  position: relative;
+}
+
+/* Mensagem de erro absoluta */
+.ant-form-item .ant-form-item-explain,
+.ant-form-item .ant-form-item-explain-error {
+  position: absolute;
+  top: calc(100%);
+  left: 0;
+  width: 100%;
+  font-size: 12px;
+  line-height: 1.4;
+  color: $primary-red;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: all 0.2s ease-out;
+}
+
+/* Quando o input está com erro */
+.ant-form-item-has-error .ant-form-item-explain,
+.ant-form-item-has-error .ant-form-item-explain-error {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* REMOVE o espaço que o NG-Zorro cria */
+.ant-form-item-with-help .ant-form-item-explain,
+.ant-form-item-with-help .ant-form-item-explain-error {
+  min-height: 0 !important;
+  height: 0 !important;
+  overflow: visible !important;
+}
+
+.header {
+  height: $header-height;
+  background-color: var(--header-bg);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 35px);
+  color: var(--text-h1);
+  box-shadow: 0 2px 8px rgba($shadow-color, 0.12);
+  will-change: box-shadow;
+  transition: box-shadow 0.3s ease;
+}
+
+.dashboard-content {
+  margin-top: $header-height;
+}
+
+body {
+  height: auto;
+}
+
+/* Dropdown menu */
+.ant-dropdown-menu-submenu.ant-dropdown-menu-submenu-selected > .ant-dropdown-menu-submenu-title {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+.ant-dropdown-menu-item.ant-dropdown-menu-item-selected,
+.ant-dropdown-menu-item.ant-dropdown-menu-item-selected:hover {
+  background-color: transparent !important;
+}
+
+.ant-dropdown-menu {
+  background-color: var(--card-bg) !important;
+  color: var(--text-h1) !important;
+}
+
+.ant-dropdown-menu-item,
+.ant-dropdown-menu-submenu-title {
+  background-color: var(--card-bg) !important;
+}
+
+.ant-dropdown-menu-item:hover,
+.ant-dropdown-menu-submenu-title:hover {
+  background-color: var(--bg) !important;
+  color: var(--text-h1) !important;
+}
+
+nz-menu-item {
+  background-color: var(--bg) !important;
+  color: var(--text-h1);
+}
+
+.ant-dropdown-menu-item.ant-dropdown-menu-item-danger {
+  color: $primary-red !important;
+}
+
+nz-avatar {
+  background-color: var(--avatar-card) !important;
+  color: var(--header-avatar-icon) !important;
+}
+
+
+/* Mensagem de erro do telefone - segue o padrão global */
+.ant-form-item-explain-error {
+  position: absolute;
+  top: calc(100%);
+  left: 0;
+  width: 100%;
+  font-size: 12px;
+  line-height: 1.4;
+  color: $primary-red;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: all 0.2s ease-out;
+}
+
+/* Quando há erro, mostra a mensagem */
+::ng-deep nz-form-control[ng-reflect-nz-validate-status="error"] .ant-form-item-explain-error {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Borda vermelha no telefone quando tem erro */
+::ng-deep nz-form-control[ng-reflect-nz-validate-status="error"] {
+  .iti__selected-country,
+  .iti__tel-input {
+    border-color: $primary-red !important;
+  }
+
+  .iti__tel-input:focus {
+    box-shadow: 0 0 0 2px rgba($primary-red, 0.2) !important;
+  }
+}
+

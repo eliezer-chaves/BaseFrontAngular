@@ -1,0 +1,11 @@
+.absolute{
+  width: 100%;
+}
+
+
+.flag-icon {
+  width: 20px;
+  height: 15px;
+  border-radius: 2px;
+  margin-right: 8px;
+}

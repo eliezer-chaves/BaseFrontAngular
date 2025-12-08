@@ -1,0 +1,7 @@
+@if ($user | async; as user) {
+<h2 class="mb-3">{{"domain.dashboard.pages.dashboard.titleWelcome" | transloco}} {{ user.usr_first_name }}!</h2>
+
+<!-- <button nz-button  nzType="primary" (click)="logout()" [nzLoading]="isLoading">
+    {{"domain.dashboard.pages.dashboard.buttonLogout" | transloco}}
+</button> -->
+}

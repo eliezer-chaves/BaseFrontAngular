@@ -1,0 +1,187 @@
+<div class="auth-card">
+    <!-- <div id="g_id_onload" data-client_id="776175008574-7uveb1rst7tr3d66sa1sftjnqgdafkmr.apps.googleusercontent.com"
+        data-context="signup" data-ux_mode="redirect"
+        data-login_uri="https://wheat-porpoise-135321.hostingersite.com/api/registerOAuth" data-auto_prompt="false">
+    </div>
+
+    <div id="g_id_signin_button"></div> -->
+
+    <h1 class="text-center">{{'domain.auth.pages.createAccount.title' | transloco}}</h1>
+    <form nz-form [nzLayout]="'vertical'" [formGroup]="validateForm" (ngSubmit)="submitForm()" class="mt-2">
+        <div class="d-flex-center" style="gap: 8px;">
+            <nz-form-item>
+                <nz-form-label class="custom-label">{{'domain.auth.pages.createAccount.labelFirstName' |
+                    transloco}}</nz-form-label>
+                <nz-form-control [nzErrorTip]="firstNameErrorTpl">
+                    <input nz-input formControlName="usr_first_name"
+                        placeholder="{{'domain.auth.pages.createAccount.placeholderFirstName' | transloco}}" />
+                    <ng-template #firstNameErrorTpl let-control>
+                        {{ control.errors?.['required'] ? ('domain.auth.pages.createAccount.errorFirstName' | transloco)
+                        : '' }}
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label class="custom-label">{{'domain.auth.pages.createAccount.labelLastName' |
+                    transloco}}</nz-form-label>
+                <nz-form-control [nzErrorTip]="lastNameErrorTpl">
+                    <input nz-input formControlName="usr_last_name"
+                        placeholder="{{'domain.auth.pages.createAccount.placeholderLastName' | transloco}}" />
+                    <ng-template #lastNameErrorTpl let-control>
+                        {{ control.errors?.['required'] ? ('domain.auth.pages.createAccount.errorLastName' | transloco)
+                        : '' }}
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+
+        <nz-form-item class="mt-3">
+            <nz-form-label>{{ 'domain.auth.pages.createAccount.labelPhone' | transloco }}</nz-form-label>
+            <nz-form-control [nzValidateStatus]="showPhoneError ? 'error' : ''">
+                @if (telInputOptions$ | async; as options) {
+                <intl-tel-input #telInput [initOptions]="options" (numberChange)="handleNumberChange($event)"
+                    (validityChange)="handleValidityChange($event)" (countryChange)="handleCountryChange($event)"
+                    (blur)="onPhoneBlur()" />
+                }
+
+                @if (showPhoneError) {
+                <div class="ant-form-item-explain-error">
+                    {{ phoneErrorMessage }}
+                </div>
+                }
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="mt-3">
+            <nz-form-label>{{'domain.auth.pages.createAccount.labelEmail' | transloco}}</nz-form-label>
+            <nz-form-control [nzErrorTip]="emailErrorTpl">
+                <input nz-input formControlName="usr_email"
+                    placeholder="{{'domain.auth.pages.createAccount.placeholderEmail' | transloco}}" />
+
+                <ng-template #emailErrorTpl let-control>
+                    {{ control.errors?.['required'] ? ('domain.auth.pages.createAccount.errorEmail' | transloco) : '' }}
+                    {{ control.errors?.['email'] ? ('domain.auth.pages.createAccount.errorEmailInvalid' | transloco) :
+                    '' }}
+                </ng-template>
+            </nz-form-control>
+        </nz-form-item>
+
+        <!-- Campo de Senha com Validação de Força -->
+        <nz-form-item class="mt-3">
+            <nz-form-label>{{'domain.auth.pages.createAccount.labelPassword' | transloco}}</nz-form-label>
+            <nz-form-control>
+                <nz-input-group [nzSuffix]="suffixTemplatePassword">
+                    <input [type]="passwordVisible ? 'text' : 'password'" nz-input formControlName="usr_password"
+                        placeholder="••••••••" (input)="onPasswordInput()" />
+                </nz-input-group>
+
+                <!-- Requisitos da Senha -->
+                @if (validateForm.get('usr_password')?.dirty || hasTyped) {
+                <div class="password-rules">
+                    <div class="requirement" [class.satisfied]="!passwordErrors.hasUppercaseError && hasTyped"
+                        [class.empty]="!hasTyped">
+                        <span class="icon">
+                            @if (hasTyped) {
+                            {{ passwordErrors.hasUppercaseError ? '✗' : '✓' }}
+                            } @else {
+                            •
+                            }
+                        </span>
+                        {{ 'domain.auth.pages.createAccount.passwordRequirements.uppercase' | transloco }}
+                    </div>
+
+                    <div class="requirement" [class.satisfied]="!passwordErrors.hasLowercaseError && hasTyped"
+                        [class.empty]="!hasTyped">
+                        <span class="icon">
+                            @if (hasTyped) {
+                            {{ passwordErrors.hasLowercaseError ? '✗' : '✓' }}
+                            } @else {
+                            •
+                            }
+                        </span>
+                        {{ 'domain.auth.pages.createAccount.passwordRequirements.lowercase' | transloco }}
+                    </div>
+
+                    <div class="requirement" [class.satisfied]="!passwordErrors.hasMinLengthError && hasTyped"
+                        [class.empty]="!hasTyped">
+                        <span class="icon">
+                            @if (hasTyped) {
+                            {{ passwordErrors.hasMinLengthError ? '✗' : '✓' }}
+                            } @else {
+                            •
+                            }
+                        </span>
+                        {{ 'domain.auth.pages.createAccount.passwordRequirements.minLength' | transloco:{ minLength:
+                        minLenghtPassword } }}
+                    </div>
+
+                    <div class="requirement" [class.satisfied]="!passwordErrors.hasSpecialCharError && hasTyped"
+                        [class.empty]="!hasTyped">
+                        <span class="icon">
+                            @if (hasTyped) {
+                            {{ passwordErrors.hasSpecialCharError ? '✗' : '✓' }}
+                            } @else {
+                            •
+                            }
+                        </span>
+                        {{ 'domain.auth.pages.createAccount.passwordRequirements.specialChar' | transloco }}
+                    </div>
+
+                    @if (passwordErrors.hasCommonSequenceError && hasTyped) {
+                    <div class="requirement requirement-warning warning">
+                        <span class="icon">⚠</span>
+                        {{ 'domain.auth.pages.createAccount.passwordRequirements.commonSequence' | transloco }}
+                    </div>
+                    }
+                </div>
+                }
+
+            </nz-form-control>
+
+            <ng-template #suffixTemplatePassword>
+                <span nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+                    (click)="passwordVisible = !passwordVisible" class="ant-input-password-icon"></span>
+            </ng-template>
+        </nz-form-item>
+
+        <nz-form-item class="mt-3">
+            <nz-form-label>{{'domain.auth.pages.createAccount.labelConfirmPassword' | transloco}}</nz-form-label>
+            <nz-form-control [nzErrorTip]="confirmPasswordErrorTpl">
+                <nz-input-group [nzSuffix]="suffixTemplateConfirmPassword">
+                    <input [type]="confirmPasswordVisible ? 'text' : 'password'" nz-input
+                        formControlName="usr_password_confirmation" placeholder="••••••••" />
+                </nz-input-group>
+
+                <ng-template #confirmPasswordErrorTpl let-control>
+                    {{ control.errors?.['required'] ? ('domain.auth.pages.createAccount.errorConfirmPasswordRequired' |
+                    transloco) : '' }}
+                    {{ control.errors?.['passwordMismatch'] ? ('domain.auth.pages.createAccount.errorConfirmPassword' |
+                    transloco) : '' }}
+                </ng-template>
+            </nz-form-control>
+
+            <ng-template #suffixTemplateConfirmPassword>
+                <span nz-icon [nzType]="confirmPasswordVisible ? 'eye-invisible' : 'eye'"
+                    (click)="confirmPasswordVisible = !confirmPasswordVisible" class="ant-input-password-icon"></span>
+            </ng-template>
+        </nz-form-item>
+
+        <nz-form-item class="mt-4">
+            <nz-form-control>
+                <button nz-button nzType="primary" nzBlock [nzLoading]="isLoading"
+                    [disabled]="!validateForm.valid || isLoading">
+                    {{'domain.auth.pages.createAccount.buttonCreateAccount' | transloco}}
+                </button>
+            </nz-form-control>
+        </nz-form-item>
+        <div class="text-center mt-1">
+            <span>{{'domain.auth.pages.createAccount.textCreateAccount' | transloco}}</span>
+            <a routerLink="/auth/login">{{'domain.auth.pages.createAccount.linkLogin' | transloco}}</a>
+        </div>
+    </form>
+    <nz-divider style="margin: 16px !important;"></nz-divider>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <app-button-language></app-button-language>
+        <app-button-theme></app-button-theme>
+    </div>
+
+</div>

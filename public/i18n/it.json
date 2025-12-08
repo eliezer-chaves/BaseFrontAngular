@@ -1,0 +1,107 @@
+{
+    "domain": {
+        "auth": {
+            "pages": {
+                "login": {
+                    "loginTitle": "Bentornato!",
+                    "loginSubtitle": "Inserisci i tuoi dati per accedere.",
+                    "labelEmail": "Email",
+                    "labelPassword": "Password",
+                    "placeholderEmail": "giovanni@email.com",
+                    "textCreateAccount": "Non hai un account?",
+                    "buttonLogin": "Accedi",
+                    "linkCreateAccount": " Crea Account",
+                    "errorEmailRequired": "Inserisci un'email.",
+                    "errorEmailInvalid": "Inserisci un'email valida.",
+                    "errorPasswordRequired": "Inserisci una password.",
+                    "errorPasswordMinLength": "La password deve essere di almeno 8 caratteri."
+                },
+                "createAccount": {
+                    "title": "Crea il tuo account",
+                    "labelFirstName": "Nome",
+                    "placeholderFirstName": "Giovanni",
+                    "labelLastName": "Cognome",
+                    "placeholderLastName": "Rossi",
+                    "labelPhone": "Cellulare",
+                    "labelEmail": "Email",
+                    "placeholderEmail": "giovanni@email.com",
+                    "labelPassword": "Password",
+                    "labelConfirmPassword": "Conferma Password",
+                    "buttonCreateAccount": "Crea Account",
+                    "textCreateAccount": "Hai già un account?",
+                    "linkLogin": " Accedi",
+                    "errorFirstName": "Inserisci il tuo nome.",
+                    "errorLastName": "Inserisci il tuo cognome.",
+                    "errorPhone": "Inserisci un numero di cellulare.",
+                    "errorPhoneInvalid": "Inserisci un numero di cellulare valido.",
+                    "errorEmail": "Inserisci un'email.",
+                    "errorEmailInvalid": "Inserisci un'email valida.",
+                    "errorPassword": "Inserisci una password.",
+                    "errorPasswordMinLength": "La password deve essere di almeno 8 caratteri.",
+                    "errorConfirmPasswordRequired": "Conferma la tua password.",
+                    "errorConfirmPassword": "Le password non corrispondono.",
+                    "passwordRequirements": {
+                        "uppercase": "Almeno 1 lettera maiuscola (A-Z)",
+                        "lowercase": "Almeno 1 lettera minuscola (a-z)",
+                        "minLength": "Minimo {{minLength}} caratteri",
+                        "specialChar": "Almeno 1 carattere speciale (!@#$%^&*)",
+                        "commonSequence": "Evita sequenze comuni della tastiera"
+                    }
+                }
+            },
+            "components": {
+                "phoneInput": {
+                    "searchPlaceholder": "Cerca...",
+                    "zeroSearchResults": "Nessun risultato trovato",
+                    "clearSearchAriaLabel": "Pulisci ricerca",
+                    "countryListAriaLabel": "Lista paesi",
+                    "selectedCountryAriaLabel": "Paese selezionato"
+                }
+            }
+        },
+        "dashboard": {
+            "pages": {
+                "dashboard": {
+                    "titleWelcome": "Benvenuto/a, ",
+                    "buttonLogout": "Esci"
+                }
+            }
+        }
+    },
+    "errors": {
+        "notifications": {
+            "loginErrorTitle": "Errore di Accesso",
+            "genericError": "Si è verificato un errore imprevisto. Riprova.",
+            "unauthenticated": "Sessione scaduta. Accedi di nuovo.",
+            "serverError": "Errore interno del server. Riprova più tardi.",
+            "invalidCredentials": "Email o password errati.",
+            "userNotFound": "Utente non trovato.",
+            "accountLocked": "Account bloccato. Contatta l'assistenza.",
+            "emailNotVerified": "Email non verificata. Controlla la tua casella di posta.",
+            "validationError": "Dati non validi. Verifica le informazioni fornite.",
+            "updateError": "Errore durante l'aggiornamento dei dati. Riprova.",
+            "invalidPassword": "La password corrente è errata.",
+            "registerSuccess": "Account creato con successo!",
+            "registerError": "Errore durante la creazione dell'account. Riprova.",
+            "logoutSuccess": "Logout effettuato con successo."
+        }
+    },
+    "loader": {
+        "loading": "Caricamento tema..."
+    },
+    "core": {
+        "components": {
+            "buttonTheme": {
+                "lightMode": "Modalità Chiara",
+                "darkMode": "Modalità Scura"
+            },
+            "header": {
+                "title": "Biblioteca",
+                "user": "Utente",
+                "changeLanguage": "Cambia Lingua",
+                "changeTheme": "Cambia Tema",
+                "logoutMessage": "Uscita in corso..."
+            }
+        }
+    }
+}

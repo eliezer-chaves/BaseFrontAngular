@@ -1,0 +1,111 @@
+
+//bookstore-front\src\styles\themes\utilites.less
+@use "variables.scss" as v;
+
+.m-1 {
+  margin: v.$margin-1;
+}
+.m-2 {
+  margin: v.$margin-2;
+}
+.m-3 {
+  margin: v.$margin-3;
+}
+.m-4 {
+  margin: v.$margin-4;
+}
+
+.mt-1 {
+  margin-top: v.$margin-1 !important;
+}
+.mt-2 {
+  margin-top: v.$margin-2 !important;
+}
+.mt-3 {
+  margin-top: v.$margin-3 !important;
+}
+.mt-4 {
+  margin-top: v.$margin-4 !important;
+}
+
+.mb-1 {
+  margin-bottom: v.$margin-1;
+}
+.mb-2 {
+  margin-bottom: v.$margin-2;
+}
+.mb-3 {
+  margin-bottom: v.$margin-3;
+}
+.mb-4 {
+  margin-bottom: v.$margin-4;
+}
+
+.ms-1 {
+  margin-left: v.$margin-1;
+}
+.ms-2 {
+  margin-left: v.$margin-2;
+}
+.ms-3 {
+  margin-left: v.$margin-3;
+}
+.ms-4 {
+  margin-left: v.$margin-4;
+}
+
+.me-1 {
+  margin-right: v.$margin-1;
+}
+.me-2 {
+  margin-right: v.$margin-2;
+}
+.me-3 {
+  margin-right: v.$margin-3;
+}
+.me-4 {
+  margin-right: v.$margin-4;
+}
+/* Padding */
+.pt-1 {
+  padding-top: v.$padding-1;
+}
+.pt-2 {
+  padding-top: v.$padding-2;
+}
+.pt-3 {
+  padding-top: v.$padding-3;
+}
+
+.pb-1 {
+  padding-bottom: v.$padding-1;
+}
+.pb-2 {
+  padding-bottom: v.$padding-2;
+}
+.pb-3 {
+  padding-bottom: v.$padding-3;
+}
+
+.p-1 {
+  padding: v.$padding-1;
+}
+.p-2 {
+  padding: v.$padding-2;
+}
+.p-3 {
+  padding: v.$padding-3;
+}
+
+.text-center {
+  text-align: center;
+}
+.text-end {
+  text-align: right;
+}
+
+.d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

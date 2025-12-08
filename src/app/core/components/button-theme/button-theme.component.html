@@ -1,0 +1,11 @@
+<nz-switch [ngModel]="isDark()" (ngModelChange)="onToggle()" [nzCheckedChildren]="checkedTpl"
+  [nzUnCheckedChildren]="unCheckedTpl" class="switch-theme-button">
+</nz-switch>
+
+<ng-template #checkedTpl>
+  {{'core.components.buttonTheme.darkMode' | transloco}}
+</ng-template>
+
+<ng-template #unCheckedTpl>
+  {{'core.components.buttonTheme.lightMode' | transloco}}
+</ng-template>

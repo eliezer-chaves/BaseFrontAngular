@@ -1,0 +1,77 @@
+@if ($user | async; as user) {
+<div class="header p-2">
+    <span>{{ 'core.components.header.title' | transloco}}</span>
+
+    <a nz-dropdown [nzDropdownMenu]="menu"  nzPlacement="bottomRight">
+        <nz-avatar nzSize="large" nzIcon="setting" nzShape="circle">
+        </nz-avatar>
+    </a>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu nzSelectable>
+
+            <li nz-menu-item>
+                <span style="font-weight: 700;">{{'core.components.header.user' | transloco}}</span><br>
+                <span style="color: #5f6875;">{{user.usr_email}}</span>
+            </li>
+            <li nz-menu-divider></li>
+            <li nz-submenu nzTitle="{{'core.components.header.changeLanguage' | transloco}}">
+                <ul nz-menu nzSelectable>
+                    @for(lang of languages; track lang.code) {
+                    <li nz-menu-item (click)="changeLanguage(lang.code)" [nzDisabled]="lang.code === defaultLang">
+
+                        <span class="flag-icon flag-icon-{{ lang.countryCode }}" style="margin-right: 8px;"></span>
+                        {{ lang.name }}
+                    </li>
+                    }
+                </ul>
+            </li>
+            <li nz-submenu nzTitle="{{'core.components.header.changeTheme' | transloco}}">
+                <ul nz-menu nzSelectable>
+                    <!-- Opção Tema Claro -->
+                    <li nz-menu-item (click)="onToggle()" [nzDisabled]="!isDark()" class="theme-item">
+                        <nz-icon nzType="sun" nzTheme="outline" class="theme-icon" />
+                        {{'core.components.buttonTheme.lightMode' | transloco}}
+                        @if(!isDark()) {
+                        <nz-icon nzType="check" class="theme-check" />
+                        }
+                    </li>
+
+                    <!-- Opção Tema Escuro -->
+                    <li nz-menu-item (click)="onToggle()" [nzDisabled]="isDark()" class="theme-item">
+                        <nz-icon nzType="moon" nzTheme="outline" class="theme-icon" />
+                        {{'core.components.buttonTheme.darkMode' | transloco}}
+                        @if(isDark()) {
+                        <nz-icon nzType="check" class="theme-check" />
+                        }
+                    </li>
+                </ul>
+            </li>
+            <li nz-menu-divider></li>
+            <li nz-menu-item nzDanger (click)="!isLoading && logout()">
+
+                @if (!isLoading) {
+                <nz-icon nzType="logout" nzTheme="outline"></nz-icon>
+                {{ "domain.dashboard.pages.dashboard.buttonLogout" | transloco }}
+                } @else {
+                <div style="display: flex; justify-content: space-between; min-width: 100%;">
+                    <nz-spin style="margin-left: 8px;" nzSize="small"></nz-spin>
+                    <span style="margin-left: 20px;">{{'core.components.header.logoutMessage' | transloco}}</span>
+
+                </div>
+                }
+
+            </li>
+
+
+
+            <!-- <li nz-menu-item nzDanger (click)="logout()" nzLoading="isLoading">
+                <nz-icon nzType="logout" nzTheme="outline" />
+                {{"domain.dashboard.pages.dashboard.buttonLogout" | transloco}}
+            </li> -->
+
+        </ul>
+    </nz-dropdown-menu>
+
+</div>
+
+}

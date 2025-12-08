@@ -1,0 +1,26 @@
+.password-rules {
+  margin-top: 4px;
+  background-color: var(--card-bg) !important;
+}
+
+.requirement {
+  display: flex;
+  align-items: start;
+  font-size: 12px;
+  color: var(--password-requirement) !important;
+}
+
+.requirement:last-child {
+  margin-bottom: 0;
+}
+
+.requirement.satisfied {
+  color: var(--password-satisfied) !important;
+}
+
+.requirement .icon {
+  margin-right: 10px;
+  font-weight: bold;
+  width: 4px;
+  text-align: center;
+}

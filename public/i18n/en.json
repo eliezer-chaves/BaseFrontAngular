@@ -1,0 +1,107 @@
+{
+    "domain": {
+        "auth": {
+            "pages": {
+                "login": {
+                    "loginTitle": "Welcome back!",
+                    "loginSubtitle": "Please enter your details to sign in.",
+                    "labelEmail": "Email",
+                    "labelPassword": "Password",
+                    "placeholderEmail": "john@email.com",
+                    "textCreateAccount": "Don't have an account?",
+                    "buttonLogin": "Sign In",
+                    "linkCreateAccount": " Create Account",
+                    "errorEmailRequired": "Please enter an email.",
+                    "errorEmailInvalid": "Please enter a valid email.",
+                    "errorPasswordRequired": "Please enter a password.",
+                    "errorPasswordMinLength": "Password must be at least 8 characters."
+                },
+                "createAccount": {
+                    "title": "Create your account",
+                    "labelFirstName": "First Name",
+                    "placeholderFirstName": "John",
+                    "labelLastName": "Last Name",
+                    "placeholderLastName": "Doe",
+                    "labelPhone": "Mobile",
+                    "labelEmail": "Email",
+                    "placeholderEmail": "john@email.com",
+                    "labelPassword": "Password",
+                    "labelConfirmPassword": "Confirm Password",
+                    "buttonCreateAccount": "Create Account",
+                    "textCreateAccount": "Already have an account?",
+                    "linkLogin": " Sign In",
+                    "errorFirstName": "Please enter your first name.",
+                    "errorLastName": "Please enter your last name.",
+                    "errorPhone": "Please enter a mobile number.",
+                    "errorPhoneInvalid": "Please enter a valid mobile number.",
+                    "errorEmail": "Please enter an email.",
+                    "errorEmailInvalid": "Please enter a valid email.",
+                    "errorPassword": "Please enter a password.",
+                    "errorPasswordMinLength": "Password must be at least 8 characters.",
+                    "errorConfirmPasswordRequired": "Please confirm your password.",
+                    "errorConfirmPassword": "Passwords do not match.",
+                    "passwordRequirements": {
+                        "uppercase": "At least 1 uppercase letter (A-Z)",
+                        "lowercase": "At least 1 lowercase letter (a-z)",
+                        "minLength": "Minimum {{minLength}} characters",
+                        "specialChar": "At least 1 special character (!@#$%^&*)",
+                        "commonSequence": "Avoid common keyboard sequences"
+                    }
+                }
+            },
+            "components": {
+                "phoneInput": {
+                    "searchPlaceholder": "Search...",
+                    "zeroSearchResults": "No results found",
+                    "clearSearchAriaLabel": "Clear search",
+                    "countryListAriaLabel": "Country list",
+                    "selectedCountryAriaLabel": "Selected country"
+                }
+            }
+        },
+        "dashboard": {
+            "pages": {
+                "dashboard": {
+                    "titleWelcome": "Welcome, ",
+                    "buttonLogout": "Logout"
+                }
+            }
+        }
+    },
+    "errors": {
+        "notifications": {
+            "loginErrorTitle": "Login Error",
+            "genericError": "An unexpected error occurred. Please try again.",
+            "unauthenticated": "Session expired. Please sign in again.",
+            "serverError": "Internal server error. Please try again later.",
+            "invalidCredentials": "Incorrect email or password.",
+            "userNotFound": "User not found.",
+            "accountLocked": "Account locked. Please contact support.",
+            "emailNotVerified": "Email not verified. Check your inbox.",
+            "validationError": "Invalid data. Please check the provided information.",
+            "updateError": "Error updating data. Please try again.",
+            "invalidPassword": "Current password is incorrect.",
+            "registerSuccess": "Account created successfully!",
+            "registerError": "Error creating account. Please try again.",
+            "logoutSuccess": "Logout successful."
+        }
+    },
+    "loader": {
+        "loading": "Loading theme..."
+    },
+    "core": {
+        "components": {
+            "buttonTheme": {
+                "lightMode": "Light Mode",
+                "darkMode": "Dark Mode"
+            },
+            "header": {
+                "title": "Library",
+                "user": "User",
+                "changeLanguage": "Change Language",
+                "changeTheme": "Change Theme",
+                "logoutMessage": "Signing out..."
+            }
+        }
+    }
+}

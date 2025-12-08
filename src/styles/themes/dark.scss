@@ -1,0 +1,41 @@
+@use "variables" as *;
+
+@mixin dark-theme {
+  /* Backgrounds */
+  --bg: #0f172a;
+  --bg-card: #1e293b;
+  --avatar-card: #334155;
+  --header-bg: #1e293b;
+  --header-avatar-icon: #e2e8f0;
+
+  /* Text */
+  --text-h1: #e2e8f0;
+  --text-h2: #94a3b8;
+  --text-gray: #cbd5e1;
+  --text-white: #ffffff;
+
+  /* Borders */
+  --border: #334155;
+
+  /* Inputs & Labels */
+  --label-color: #cbd5e1;
+  --input-suffix-color: #cbd5e1;
+  --color-input: rgba(255, 255, 255, 0.85);
+
+  /* Buttons */
+  --btn-primary-bg: #{$primary-blue};
+  --btn-primary-text: #ffffff;
+
+  /* Card */
+  --card-bg: #1e293b;
+  --card-border: #334155;
+
+  --link-color: #ffffff;
+  --placeholder-input: #{$dark-placeholder-input};
+  --border-input: #{$dark-border-input};
+  --border-input-focus: #177ddc;
+  --hover-input: #{$dark-hover-blue};
+
+  --password-requirement: #94a3b8;
+  --password-satisfied: #22c55e;
+}

@@ -1,0 +1,8 @@
+<!-- app.component.html -->
+
+<!-- Loader global de tema -->
+@if (themeService.isLoadingTheme()) {
+  <app-loader />
+}
+
+<router-outlet></router-outlet>
