@@ -1,3 +1,4 @@
+// src/app/core/services/theme.service.ts
 import { Injectable, signal } from '@angular/core';
 
 export type ThemeMode = 'light' | 'dark';
@@ -69,47 +70,22 @@ export class ThemeService {
     this.saveTheme(newTheme);
   }
 
-  /** Aplica o tema trocando os bundles gerados pelo angular.json */
+  /** Aplica o tema usando apenas CSS Variables (sem bundles separados) */
   private applyTheme(theme: ThemeMode, showLoader: boolean = true) {
     if (showLoader) {
       this.isLoadingTheme.set(true);
     }
 
-    // Remove possíveis temas antigos
-    const oldLinks = document.querySelectorAll('link[data-theme]');
-    
-    const head = document.head;
-    const linkEl = document.createElement('link');
-    linkEl.rel = 'stylesheet';
-    linkEl.href = `./${theme}.css`;
-    linkEl.setAttribute('data-theme', theme);
+    // Atualiza a classe no elemento HTML
+    document.documentElement.classList.remove('light', 'dark');
+    document.documentElement.classList.add(theme);
 
-    // Aguarda o CSS carregar antes de remover o anterior e esconder o loader
-    linkEl.onload = () => {
-      // Remove os links antigos somente após o novo carregar
-      oldLinks.forEach(link => link.remove());
-      
-      // Atualiza classe no HTML
-      document.documentElement.classList.remove('light', 'dark');
-      document.documentElement.classList.add(theme);
-      
-      // Esconde o loader após uma pequena transição
-      if (showLoader) {
-        setTimeout(() => {
-          this.isLoadingTheme.set(false);
-        }, 300);
-      }
-    };
-
-    // Tratamento de erro
-    linkEl.onerror = () => {
-      console.error(`Erro ao carregar tema: ${theme}.css`);
-      if (showLoader) {
+    // Simula um delay mínimo para o loader (opcional, para UX)
+    if (showLoader) {
+      setTimeout(() => {
         this.isLoadingTheme.set(false);
-      }
-    };
-
-    head.appendChild(linkEl);
+      }, 300);
+    }
   }
 
   /** Monitora mudanças na preferência do sistema (opcional) */

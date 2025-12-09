@@ -1,7 +1,5 @@
-@use "variables" as *;
-
-@mixin dark-theme {
-  /* Backgrounds */
+/*src\styles\themes\dark.css*/
+:root.dark {
   --bg: #0f172a;
   --bg-card: #1e293b;
   --avatar-card: #334155;
@@ -23,7 +21,7 @@
   --color-input: rgba(255, 255, 255, 0.85);
 
   /* Buttons */
-  --btn-primary-bg: #{$primary-blue};
+  --btn-primary-bg: var(--primary-blue);
   --btn-primary-text: #ffffff;
 
   /* Card */
@@ -31,10 +29,10 @@
   --card-border: #334155;
 
   --link-color: #ffffff;
-  --placeholder-input: #{$dark-placeholder-input};
-  --border-input: #{$dark-border-input};
+  --placeholder-input: var(--dark-placeholder-input);
+  --border-input: var(--dark-border-input);
   --border-input-focus: #177ddc;
-  --hover-input: #{$dark-hover-blue};
+  --hover-input: var(--dark-hover-blue);
 
   --password-requirement: #94a3b8;
   --password-satisfied: #22c55e;

@@ -1,0 +1,284 @@
+/* ===========================
+   src\styles\themes\intl-input.css
+=========================== */
+
+intl-tel-input {
+  width: 100%;
+}
+
+intl-tel-input .iti {
+  width: 100%;
+}
+
+intl-tel-input .iti .iti__country-container {
+  width: 100%;
+}
+
+intl-tel-input .iti .iti__selected-country {
+  background: transparent !important;
+  height: 44px;
+}
+
+intl-tel-input .iti .iti__selected-country:hover {
+  border-color: #b5bcc7 !important; /* aproximado do color.adjust */
+}
+
+intl-tel-input .iti .iti__selected-country:focus {
+  border-color: var(--primary-blue) !important;
+}
+
+intl-tel-input .iti .iti__selected-country-primary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 8px;
+}
+
+intl-tel-input .iti .iti__arrow {
+  width: 0;
+  height: 0;
+  border: none;
+  border-top: 4px solid var(--input-suffix-color) !important;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  margin-left: auto;
+}
+
+intl-tel-input .iti .iti__arrow::before,
+intl-tel-input .iti .iti__arrow::after {
+  display: none;
+}
+
+intl-tel-input .iti .iti__selected-country::after {
+  display: none !important;
+}
+
+intl-tel-input .iti .iti__dropdown-content {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-top: 4px;
+  color: var(--text-gray) !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-height: 300px !important;
+  z-index: 1000;
+}
+
+intl-tel-input .iti .iti__search-input {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px;
+  color: var(--text-gray) !important;
+  padding: 12px 40px;
+  width: 100%;
+  font-size: 14px;
+}
+
+intl-tel-input .iti .iti__search-input:focus {
+  border-color: var(--primary-blue) !important;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--primary-blue-rgb), 0.2);
+}
+
+intl-tel-input .iti .iti__search-input::placeholder {
+  color: var(--placeholder-input) !important;
+  opacity: 1;
+}
+
+intl-tel-input .iti .iti__search-icon {
+  margin-left: 10px;
+  color: var(--color-input) !important;
+}
+
+intl-tel-input .iti .iti__search-icon svg circle,
+intl-tel-input .iti .iti__search-icon svg line {
+  stroke: var(--color-input) !important;
+}
+
+intl-tel-input .iti .iti__search-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+intl-tel-input .iti .iti__search-clear:hover {
+  opacity: 1;
+}
+
+intl-tel-input .iti .iti__search-clear svg {
+  width: 16px;
+  height: 16px;
+}
+
+intl-tel-input .iti .iti__search-clear .iti__search-clear-bg {
+  fill: var(--input-suffix-color) !important;
+}
+
+intl-tel-input .iti .iti__search-clear .iti__search-clear-x {
+  stroke: black !important;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+intl-tel-input .iti .iti__a11y-text {
+  color: var(--text-h2) !important;
+  font-size: 12px;
+}
+
+intl-tel-input .iti .iti__country-list {
+  background: var(--card-bg) !important;
+  border: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+intl-tel-input .iti .iti__country-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+intl-tel-input .iti .iti__country-list::-webkit-scrollbar-track {
+  background: var(--bg) !important;
+}
+
+intl-tel-input .iti .iti__country-list::-webkit-scrollbar-thumb {
+  background: var(--border) !important;
+  border-radius: 3px;
+}
+
+intl-tel-input .iti .iti__country {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(var(--border-rgb), 0.5);
+  color: var(--text-gray) !important;
+}
+
+intl-tel-input .iti .iti__country:hover {
+  background: var(--bg) !important;
+}
+
+intl-tel-input .iti .iti__country.iti__highlight {
+  background: rgba(var(--primary-blue-rgb), 0.1) !important;
+  color: var(--text-gray) !important;
+}
+
+intl-tel-input .iti .iti__country-name {
+  color: var(--text-gray) !important;
+}
+
+intl-tel-input .iti .iti__dial-code {
+  color: var(--text-h2) !important;
+}
+
+intl-tel-input .iti .iti__tel-input {
+  width: 100%;
+  height: 44px;
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border-input) !important;
+  border-radius: 4px;
+  color: var(--color-input) !important;
+  padding: 10px 12px;
+  padding-left: 87px !important;
+  font-size: 14px;
+  transition: all 0.3s ease;
+
+  &::placeholder {
+    color: var(--placeholder-input) !important;
+  }
+}
+
+intl-tel-input .iti .iti__tel-input:hover {
+  border-color: var(--hover-input) !important;
+}
+
+intl-tel-input .iti .iti__tel-input:focus {
+  border-color: var(--border-input-focus) !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+  outline: none;
+}
+
+intl-tel-input .iti.iti--invalid .iti__selected-country,
+intl-tel-input .iti.iti--invalid .iti__tel-input {
+  border-color: var(--primary-red) !important;
+}
+
+intl-tel-input .iti.iti--show-dropdown .iti__selected-country {
+  border-color: var(--primary-blue) !important;
+  box-shadow: 0 0 0 2px rgba(var(--primary-blue-rgb), 0.2);
+}
+
+intl-tel-input .iti.iti--show-dropdown .iti__arrow {
+  border-top: none;
+  border-bottom: 4px solid var(--input-suffix-color) !important;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+}
+.iti__selected-dial-code {
+  color: var(--placeholder-input);
+}
+/* MOBILE DROPDOWN */
+
+.iti__mobile {
+  position: static !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  background: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  padding: 0 !important;
+}
+
+.iti__dropdown-content.iti__mobile {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-height: 300px !important;
+  overflow-y: auto !important;
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  margin-top: 4px !important;
+}
+
+/* ANT DESIGN INTEGRATION */
+
+.ant-form-item-control-input intl-tel-input {
+  width: 100%;
+}
+
+.ant-form-item-has-error intl-tel-input .iti__tel-input:focus,
+.ant-form-item-has-error intl-tel-input .iti__tel-input:hover {
+  border-color: var(--primary-red) !important;
+}
+
+.ant-form-item-has-error intl-tel-input .iti__selected-country,
+.ant-form-item-has-error intl-tel-input .iti__tel-input {
+  border-color: var(--primary-red) !important;
+}
+
+.ant-form-item-has-error intl-tel-input .iti__tel-input:focus {
+  box-shadow: 0 0 0 2px rgba(var(--primary-red-rgb), 0.2) !important;
+}
+
+/* DISABLED STYLE */
+
+.ant-input-disabled intl-tel-input .iti__selected-country,
+.ant-input-disabled intl-tel-input .iti__tel-input {
+  background-color: rgba(var(--card-bg-rgb), 0.5) !important;
+  border-color: rgba(var(--border-rgb), 0.5) !important;
+  color: rgba(var(--text-gray-rgb), 0.5) !important;
+  cursor: not-allowed;
+}

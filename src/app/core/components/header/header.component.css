@@ -6,7 +6,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: var(--header-height);
+  background-color: var(--header-bg);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 35px);
+  color: var(--text-h1);
+  box-shadow: 0 2px 8px rgba(var(--shadow-color), 0.12);
+  will-change: box-shadow;
+  transition: box-shadow 0.3s ease;
 }
-
-
-

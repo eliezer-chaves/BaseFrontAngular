@@ -5,9 +5,13 @@ export const environment = {
   passwordMinLenght: 8,
   apiUrl: 'https://127.0.0.1:8000',
 
-  languages: [
+ languages: [
     { code: 'en', name: 'English', countryCode: 'gb' },
     { code: 'pt-BR', name: 'Português (BR)', countryCode: 'br' },
+    { code: 'de', name: 'Deutsch', countryCode: 'de' },
+    { code: 'es', name: 'Español', countryCode: 'es' },
+    { code: 'fr', name: 'Français', countryCode: 'fr' },
+    { code: 'it', name: 'Italiano', countryCode: 'it' },
     { code: 'pt-PT', name: 'Português (PT)', countryCode: 'pt' },
   ] as ILanguageConfig[],
 

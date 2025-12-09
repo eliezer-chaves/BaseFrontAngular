@@ -12,7 +12,6 @@ export const environment = {
     { code: 'es', name: 'Español', countryCode: 'es' },
     { code: 'fr', name: 'Français', countryCode: 'fr' },
     { code: 'it', name: 'Italiano', countryCode: 'it' },
-    { code: 'ja', name: '日本語', countryCode: 'jp' },
     { code: 'pt-PT', name: 'Português (PT)', countryCode: 'pt' },
   ] as ILanguageConfig[],
 

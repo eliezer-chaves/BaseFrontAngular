@@ -1,0 +1,25 @@
+  /* src\styles\themes\variables.css */
+:root {
+  /* Spacings */
+  --margin-1: 8px;
+  --margin-2: 16px;
+  --margin-3: 20px;
+  --margin-4: 32px;
+
+  --padding-1: 8px;
+  --padding-2: 16px;
+  --padding-3: 32px;
+
+  /* Colors */
+  --primary-blue: #3B82F6;
+  --dark-hover-blue: #165996;
+  --focus-blue: #40a9ff;
+  --dark-border-input: #434343;
+  --dark-placeholder-input: rgba(255, 255, 255, 0.3);
+  --light-placeholder-input: #bfbfbf;
+  --primary-red: #ff4d4f;
+
+  /* Misc */
+  --header-height: 80px;
+  --shadow-color: #000000;
+}

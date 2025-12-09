@@ -1,41 +1,34 @@
-@use 'variables' as *;
-
-@mixin light-theme {
-  /* Backgrounds */
+/*src\styles\themes\light.css*/
+:root.light {
   --bg: #f9fafb;
   --bg-card: #ffffff;
   --avatar-card: #f9fafb;
   --header-bg: #f1f1f1;
   --header-avatar-icon: #5f6875;
 
-  /* Text */
   --text-h1: #111827;
   --text-h2: #5f6875;
   --text-gray: #374151;
   --text-white: #ffffff;
 
-  /* Borders */
   --border: #d1d5db;
 
-  /* Inputs & Labels */
   --label-color: #374151;
   --input-suffix-color: #374151;
   --color-input: #374151;
 
-  /* Buttons */
-  --btn-primary-bg: #{$primary-blue};
+  --btn-primary-bg: var(--primary-blue);
   --btn-primary-text: #ffffff;
 
-  /* Card */
   --card-bg: #ffffff;
   --card-border: #d1d5db;
 
-  --link-color: #{$primary-blue};
-  --placeholder-input: #{$light-placeholder-input};
+  --link-color: var(--primary-blue);
+  --placeholder-input: var(--light-placeholder-input);
   --border-input: #d1d5db;
-  --border-input-focus: #{$focus-blue};
-  --hover-input: #{$focus-blue};
+  --border-input-focus: var(--focus-blue);
+  --hover-input: var(--focus-blue);
 
-  --password-requirement: #374151; 
-  --password-satisfied: #16a34a; 
+  --password-requirement: #374151;
+  --password-satisfied: #16a34a;
 }

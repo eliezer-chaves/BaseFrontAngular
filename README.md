@@ -233,7 +233,28 @@ Certifique-se de que o backend esteja rodando antes de iniciar o frontend para g
 
 ### NG-ZORRO (Ant Design)
 
-O projeto utiliza NG-ZORRO para componentes de interface. Documentação oficial:
+O projeto utiliza NG-ZORRO para componentes de interface baseados no Ant Design.
+
+#### Instalação
+
+```bash
+npm install ng-zorro-antd
+```
+
+#### Configuração
+
+Adicione o CSS do NG-ZORRO no arquivo `angular.json` na seção `styles`:
+
+```json
+"styles": [
+  "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
+  "src/styles.css"
+]
+```
+
+#### Documentação
+
+Para mais informações sobre componentes e uso, consulte a documentação oficial:
 - [NG-ZORRO Documentation](https://ng.ant.design/docs/introduce/en)
 
 ### Google Material Icons

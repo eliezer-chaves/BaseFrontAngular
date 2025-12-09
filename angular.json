@@ -32,17 +32,16 @@
               }
             ],
             "styles": [
+              "src/styles.css",
+              "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "./node_modules/intl-tel-input/build/css/intlTelInput.css",
-              {
-                "input": "src/styles/light.scss",
-                "bundleName": "light",
-                "inject": false
-              },
-              {
-                "input": "src/styles/dark.scss",
-                "bundleName": "dark",
-                "inject": false
-              }
+              "./src/styles/themes/reset.css",
+              "./src/styles/themes/variables.css",
+              "./src/styles/themes/utilites.css",
+              "./src/styles/themes/base.css",
+              "./src/styles/themes/intl-input.css",
+              "./src/styles/themes/light.css",
+              "./src/styles/themes/dark.css"
             ],
             "scripts": []
           },

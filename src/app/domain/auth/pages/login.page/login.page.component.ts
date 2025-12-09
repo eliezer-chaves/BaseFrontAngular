@@ -30,8 +30,9 @@ declare const google: any;
   selector: 'app-login.page',
   imports: [RouterLink, ReactiveFormsModule, FormsModule, NzFormModule, NzSelectModule, NzGridModule, NzDatePickerModule, NzRadioModule, NzInputModule, NzCheckboxModule, NzButtonModule, NzIconModule, NzInputNumberModule, NzTypographyModule, NzFlexModule, TranslocoModule, NzDividerComponent, ButtonLanguageComponent, ButtonThemeComponent],
   templateUrl: './login.page.component.html',
-  styleUrl: './login.page.component.css'
+  styleUrl: './login.page.component.css',
 })
+
 export class LoginPageComponent {
   loadingService = inject(LoadingService);
   isLoading = false;

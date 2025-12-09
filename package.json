@@ -24,7 +24,7 @@
     "google-libphonenumber": "^3.2.43",
     "intl-tel-input": "^25.12.5",
     "libphonenumber": "^0.0.10",
-    "ng-zorro-antd": "^20.4.2",
+    "ng-zorro-antd": "^20.4.3",
     "ngx-intl-tel-input-gg": "^1.0.12",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

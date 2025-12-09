@@ -30,7 +30,7 @@
             <!-- <a routerLink="/home">Forgot your password?</a> -->
         </div>
 
-        <nz-form-item class="mt-2">
+        <nz-form-item class="mt-4">
             <nz-form-control>
                 <button nz-button nzType="primary" nzBlock [nzLoading]="isLoading"
                     [disabled]="!validateForm.valid || isLoading">
@@ -39,10 +39,10 @@
             </nz-form-control>
         </nz-form-item>
         <div class="text-center mt-1">
-            <span style="color: var(--light-text-gray) !important;">
+            <span class="text-link">
                 {{'domain.auth.pages.login.textCreateAccount' | transloco}}
             </span>
-            <a routerLink="/auth/create-account" >
+            <a routerLink="/auth/create-account" class="link-primary">
                 {{'domain.auth.pages.login.linkCreateAccount' | transloco}}
             </a>
         </div>
