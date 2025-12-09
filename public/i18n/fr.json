@@ -1,107 +1,107 @@
 {
-    "domain": {
-        "auth": {
-            "pages": {
-                "login": {
-                    "loginTitle": "Bon retour !",
-                    "loginSubtitle": "Veuillez entrer vos informations pour vous connecter.",
-                    "labelEmail": "Email",
-                    "labelPassword": "Mot de passe",
-                    "placeholderEmail": "jean@email.com",
-                    "textCreateAccount": "Vous n'avez pas de compte ?",
-                    "buttonLogin": "Se Connecter",
-                    "linkCreateAccount": " Créer un Compte",
-                    "errorEmailRequired": "Veuillez entrer un email.",
-                    "errorEmailInvalid": "Veuillez entrer un email valide.",
-                    "errorPasswordRequired": "Veuillez entrer un mot de passe.",
-                    "errorPasswordMinLength": "Le mot de passe doit contenir au moins 8 caractères."
-                },
-                "createAccount": {
-                    "title": "Créez votre compte",
-                    "labelFirstName": "Prénom",
-                    "placeholderFirstName": "Jean",
-                    "labelLastName": "Nom",
-                    "placeholderLastName": "Dupont",
-                    "labelPhone": "Mobile",
-                    "labelEmail": "Email",
-                    "placeholderEmail": "jean@email.com",
-                    "labelPassword": "Mot de passe",
-                    "labelConfirmPassword": "Confirmer le Mot de Passe",
-                    "buttonCreateAccount": "Créer un Compte",
-                    "textCreateAccount": "Vous avez déjà un compte ?",
-                    "linkLogin": " Se Connecter",
-                    "errorFirstName": "Veuillez entrer votre prénom.",
-                    "errorLastName": "Veuillez entrer votre nom.",
-                    "errorPhone": "Veuillez entrer un numéro de mobile.",
-                    "errorPhoneInvalid": "Veuillez entrer un numéro de mobile valide.",
-                    "errorEmail": "Veuillez entrer un email.",
-                    "errorEmailInvalid": "Veuillez entrer un email valide.",
-                    "errorPassword": "Veuillez entrer un mot de passe.",
-                    "errorPasswordMinLength": "Le mot de passe doit contenir au moins 8 caractères.",
-                    "errorConfirmPasswordRequired": "Veuillez confirmer votre mot de passe.",
-                    "errorConfirmPassword": "Les mots de passe ne correspondent pas.",
-                    "passwordRequirements": {
-                        "uppercase": "Au moins 1 lettre majuscule (A-Z)",
-                        "lowercase": "Au moins 1 lettre minuscule (a-z)",
-                        "minLength": "Minimum {{minLength}} caractères",
-                        "specialChar": "Au moins 1 caractère spécial (!@#$%^&*)",
-                        "commonSequence": "Évitez les séquences courantes du clavier"
-                    }
-                }
-            },
-            "components": {
-                "phoneInput": {
-                    "searchPlaceholder": "Rechercher...",
-                    "zeroSearchResults": "Aucun résultat trouvé",
-                    "clearSearchAriaLabel": "Effacer la recherche",
-                    "countryListAriaLabel": "Liste des pays",
-                    "selectedCountryAriaLabel": "Pays sélectionné"
-                }
-            }
+  "domain": {
+    "auth": {
+      "pages": {
+        "login": {
+          "loginTitle": "Bon retour !",
+          "loginSubtitle": "Veuillez entrer vos informations pour vous connecter.",
+          "labelEmail": "E-mail",
+          "labelPassword": "Mot de passe",
+          "placeholderEmail": "jean@email.com",
+          "textCreateAccount": "Vous n'avez pas de compte ?",
+          "buttonLogin": "Se connecter",
+          "linkCreateAccount": " Créer un compte",
+          "errorEmailRequired": "Veuillez entrer un e-mail.",
+          "errorEmailInvalid": "Veuillez entrer un e-mail valide.",
+          "errorPasswordRequired": "Veuillez entrer un mot de passe.",
+          "errorPasswordMinLength": "Le mot de passe doit contenir au moins 8 caractères."
         },
+        "createAccount": {
+          "title": "Créez votre compte",
+          "labelFirstName": "Prénom",
+          "placeholderFirstName": "Jean",
+          "labelLastName": "Nom",
+          "placeholderLastName": "Dupont",
+          "labelPhone": "Téléphone",
+          "labelEmail": "E-mail",
+          "placeholderEmail": "jean@email.com",
+          "labelPassword": "Mot de passe",
+          "labelConfirmPassword": "Confirmer le mot de passe",
+          "buttonCreateAccount": "Créer un compte",
+          "textCreateAccount": "Vous avez déjà un compte ?",
+          "linkLogin": " Se connecter",
+          "errorFirstName": "Veuillez entrer votre prénom.",
+          "errorLastName": "Veuillez entrer votre nom.",
+          "errorPhone": "Veuillez entrer un numéro de téléphone.",
+          "errorPhoneInvalid": "Veuillez entrer un numéro de téléphone valide.",
+          "errorEmail": "Veuillez entrer un e-mail.",
+          "errorEmailInvalid": "Veuillez entrer un e-mail valide.",
+          "errorPassword": "Veuillez entrer un mot de passe.",
+          "errorPasswordMinLength": "Le mot de passe doit contenir au moins 8 caractères.",
+          "errorConfirmPasswordRequired": "Veuillez confirmer votre mot de passe.",
+          "errorConfirmPassword": "Les mots de passe ne correspondent pas.",
+          "passwordRequirements": {
+            "uppercase": "Au moins 1 lettre majuscule (A-Z)",
+            "lowercase": "Au moins 1 lettre minuscule (a-z)",
+            "minLength": "Minimum {{minLength}} caractères",
+            "specialChar": "Au moins 1 caractère spécial (!@#$%^&*)",
+            "commonSequence": "Évitez les séquences courantes du clavier"
+          }
+        }
+      },
+      "components": {
+        "phoneInput": {
+          "searchPlaceholder": "Rechercher...",
+          "zeroSearchResults": "Aucun résultat trouvé",
+          "clearSearchAriaLabel": "Effacer la recherche",
+          "countryListAriaLabel": "Liste des pays",
+          "selectedCountryAriaLabel": "Pays sélectionné"
+        }
+      }
+    },
+    "dashboard": {
+      "pages": {
         "dashboard": {
-            "pages": {
-                "dashboard": {
-                    "titleWelcome": "Bienvenue, ",
-                    "buttonLogout": "Déconnexion"
-                }
-            }
+          "titleWelcome": "Bienvenue, ",
+          "buttonLogout": "Se déconnecter"
         }
-    },
-    "errors": {
-        "notifications": {
-            "loginErrorTitle": "Erreur de Connexion",
-            "genericError": "Une erreur inattendue s'est produite. Veuillez réessayer.",
-            "unauthenticated": "Session expirée. Veuillez vous reconnecter.",
-            "serverError": "Erreur interne du serveur. Veuillez réessayer plus tard.",
-            "invalidCredentials": "Email ou mot de passe incorrect.",
-            "userNotFound": "Utilisateur non trouvé.",
-            "accountLocked": "Compte bloqué. Veuillez contacter le support.",
-            "emailNotVerified": "Email non vérifié. Vérifiez votre boîte de réception.",
-            "validationError": "Données invalides. Veuillez vérifier les informations fournies.",
-            "updateError": "Erreur lors de la mise à jour des données. Veuillez réessayer.",
-            "invalidPassword": "Le mot de passe actuel est incorrect.",
-            "registerSuccess": "Compte créé avec succès !",
-            "registerError": "Erreur lors de la création du compte. Veuillez réessayer.",
-            "logoutSuccess": "Déconnexion réussie."
-        }
-    },
-    "loader": {
-        "loading": "Chargement du thème..."
-    },
-    "core": {
-        "components": {
-            "buttonTheme": {
-                "lightMode": "Mode Clair",
-                "darkMode": "Mode Sombre"
-            },
-            "header": {
-                "title": "Bibliothèque",
-                "user": "Utilisateur",
-                "changeLanguage": "Changer de Langue",
-                "changeTheme": "Changer de Thème",
-                "logoutMessage": "Déconnexion en cours..."
-            }
-        }
+      }
     }
+  },
+  "errors": {
+    "notifications": {
+      "loginErrorTitle": "Erreur de connexion",
+      "genericError": "Une erreur inattendue s'est produite. Réessayez.",
+      "unauthenticated": "Session expirée. Veuillez vous reconnecter.",
+      "serverError": "Erreur interne du serveur. Réessayez plus tard.",
+      "invalidCredentials": "E-mail ou mot de passe incorrect.",
+      "userNotFound": "Utilisateur non trouvé.",
+      "accountLocked": "Compte bloqué. Contactez le support.",
+      "emailNotVerified": "E-mail non vérifié. Vérifiez votre boîte de réception.",
+      "validationError": "Données invalides. Vérifiez les informations.",
+      "updateError": "Erreur lors de la mise à jour.",
+      "invalidPassword": "Mot de passe actuel incorrect.",
+      "registerSuccess": "Compte créé avec succès !",
+      "registerError": "Erreur lors de la création du compte.",
+      "logoutSuccess": "Déconnexion réussie."
+    }
+  },
+  "loader": {
+    "loading": "Chargement du thème..."
+  },
+  "core": {
+    "components": {
+      "buttonTheme": {
+        "lightMode": "Mode clair",
+        "darkMode": "Mode sombre"
+      },
+      "header": {
+        "title": "Nom du Projet",
+        "user": "Utilisateur",
+        "changeLanguage": "Changer de langue",
+        "changeTheme": "Changer le thème",
+        "logoutMessage": "Déconnexion..."
+      }
+    }
+  }
 }

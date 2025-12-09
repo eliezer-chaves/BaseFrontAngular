@@ -1,107 +1,107 @@
 {
-    "domain": {
-        "auth": {
-            "pages": {
-                "login": {
-                    "loginTitle": "Bem-vindo de volta!",
-                    "loginSubtitle": "Por favor, insira os seus dados para entrar.",
-                    "labelEmail": "Email",
-                    "labelPassword": "Palavra-passe",
-                    "placeholderEmail": "joao@email.com",
-                    "textCreateAccount": "Ainda não tem uma conta?",
-                    "buttonLogin": "Entrar",
-                    "linkCreateAccount": " Criar Conta",
-                    "errorEmailRequired": "Por favor, insira um email.",
-                    "errorEmailInvalid": "Por favor, insira um email válido.",
-                    "errorPasswordRequired": "Por favor, insira uma palavra-passe.",
-                    "errorPasswordMinLength": "A palavra-passe deve ter pelo menos 8 caracteres."
-                },
-                "createAccount": {
-                    "title": "Crie a sua conta",
-                    "labelFirstName": "Nome",
-                    "placeholderFirstName": "João",
-                    "labelLastName": "Apelido",
-                    "placeholderLastName": "Silva",
-                    "labelPhone": "Telemóvel",
-                    "labelEmail": "Email",
-                    "placeholderEmail": "joao@email.com",
-                    "labelPassword": "Palavra-passe",
-                    "labelConfirmPassword": "Confirmar Palavra-passe",
-                    "buttonCreateAccount": "Criar Conta",
-                    "textCreateAccount": "Já tem uma conta?",
-                    "linkLogin": " Entrar",
-                    "errorFirstName": "Por favor, insira o seu nome.",
-                    "errorLastName": "Por favor, insira o seu apelido.",
-                    "errorPhone": "Por favor, insira um número de telemóvel.",
-                    "errorPhoneInvalid": "Por favor, insira um número de telemóvel válido.",
-                    "errorEmail": "Por favor, insira um email.",
-                    "errorEmailInvalid": "Por favor, insira um email válido.",
-                    "errorPassword": "Por favor, insira uma palavra-passe.",
-                    "errorPasswordMinLength": "A palavra-passe deve ter pelo menos 8 caracteres.",
-                    "errorConfirmPasswordRequired": "Por favor, confirme a sua palavra-passe.",
-                    "errorConfirmPassword": "As palavras-passe não coincidem.",
-                    "passwordRequirements": {
-                        "uppercase": "Pelo menos 1 letra maiúscula (A-Z)",
-                        "lowercase": "Pelo menos 1 letra minúscula (a-z)",
-                        "minLength": "Mínimo {{minLength}} caracteres",
-                        "specialChar": "Pelo menos 1 caractere especial (!@#$%^&*)",
-                        "commonSequence": "Evite sequências comuns do teclado"
-                    }
-                }
-            },
-            "components": {
-                "phoneInput": {
-                    "searchPlaceholder": "Pesquisar...",
-                    "zeroSearchResults": "Nenhum resultado encontrado",
-                    "clearSearchAriaLabel": "Limpar pesquisa",
-                    "countryListAriaLabel": "Lista de países",
-                    "selectedCountryAriaLabel": "País selecionado"
-                }
-            }
+  "domain": {
+    "auth": {
+      "pages": {
+        "login": {
+          "loginTitle": "Bem-vindo de volta!",
+          "loginSubtitle": "Por favor, introduza os seus dados para entrar.",
+          "labelEmail": "Email",
+          "labelPassword": "Palavra-passe",
+          "placeholderEmail": "joao@email.com",
+          "textCreateAccount": "Ainda não tem conta?",
+          "buttonLogin": "Entrar",
+          "linkCreateAccount": " Criar Conta",
+          "errorEmailRequired": "Por favor, introduza um email.",
+          "errorEmailInvalid": "Por favor, introduza um email válido.",
+          "errorPasswordRequired": "Por favor, introduza uma palavra-passe.",
+          "errorPasswordMinLength": "A palavra-passe deve ter pelo menos 8 caracteres."
         },
+        "createAccount": {
+          "title": "Crie a sua conta",
+          "labelFirstName": "Nome",
+          "placeholderFirstName": "João",
+          "labelLastName": "Apelido",
+          "placeholderLastName": "Silva",
+          "labelPhone": "Telemóvel",
+          "labelEmail": "Email",
+          "placeholderEmail": "joao@email.com",
+          "labelPassword": "Palavra-passe",
+          "labelConfirmPassword": "Confirmar Palavra-passe",
+          "buttonCreateAccount": "Criar Conta",
+          "textCreateAccount": "Já tem conta?",
+          "linkLogin": " Entrar",
+          "errorFirstName": "Por favor, introduza o seu nome.",
+          "errorLastName": "Por favor, introduza o seu apelido.",
+          "errorPhone": "Por favor, introduza um número de telemóvel.",
+          "errorPhoneInvalid": "Por favor, introduza um número de telemóvel válido.",
+          "errorEmail": "Por favor, introduza um email.",
+          "errorEmailInvalid": "Por favor, introduza um email válido.",
+          "errorPassword": "Por favor, introduza uma palavra-passe.",
+          "errorPasswordMinLength": "A palavra-passe deve ter pelo menos 8 caracteres.",
+          "errorConfirmPasswordRequired": "Por favor, confirme a sua palavra-passe.",
+          "errorConfirmPassword": "As palavras-passe não coincidem.",
+          "passwordRequirements": {
+            "uppercase": "Pelo menos 1 letra maiúscula (A-Z)",
+            "lowercase": "Pelo menos 1 letra minúscula (a-z)",
+            "minLength": "Mínimo {{minLength}} caracteres",
+            "specialChar": "Pelo menos 1 carácter especial (!@#$%^&*)",
+            "commonSequence": "Evite sequências comuns no teclado"
+          }
+        }
+      },
+      "components": {
+        "phoneInput": {
+          "searchPlaceholder": "Pesquisar...",
+          "zeroSearchResults": "Nenhum resultado encontrado",
+          "clearSearchAriaLabel": "Limpar pesquisa",
+          "countryListAriaLabel": "Lista de países",
+          "selectedCountryAriaLabel": "País selecionado"
+        }
+      }
+    },
+    "dashboard": {
+      "pages": {
         "dashboard": {
-            "pages": {
-                "dashboard": {
-                    "titleWelcome": "Bem-vindo(a), ",
-                    "buttonLogout": "Sair"
-                }
-            }
+          "titleWelcome": "Bem-vindo(a), ",
+          "buttonLogout": "Sair"
         }
-    },
-    "errors": {
-        "notifications": {
-            "loginErrorTitle": "Erro de Login",
-            "genericError": "Ocorreu um erro inesperado. Tente novamente.",
-            "unauthenticated": "Sessão expirada. Faça login novamente.",
-            "serverError": "Erro interno do servidor. Tente novamente mais tarde.",
-            "invalidCredentials": "E-mail ou palavra-passe incorretos.",
-            "userNotFound": "Utilizador não encontrado.",
-            "accountLocked": "Conta bloqueada. Entre em contacto com o suporte.",
-            "emailNotVerified": "E-mail não verificado. Verifique a sua caixa de entrada.",
-            "validationError": "Dados inválidos. Verifique as informações fornecidas.",
-            "updateError": "Erro ao atualizar dados. Tente novamente.",
-            "invalidPassword": "Palavra-passe atual incorreta.",
-            "registerSuccess": "Conta criada com sucesso!",
-            "registerError": "Erro ao criar conta. Tente novamente.",
-            "logoutSuccess": "Logout realizado com sucesso."
-        }
-    },
-    "loader": {
-        "loading": "A carregar tema..."
-    },
-    "core": {
-        "components": {
-            "buttonTheme": {
-                "lightMode": "Modo Claro",
-                "darkMode": "Modo Escuro"
-            },
-            "header": {
-                "title": "Biblioteca",
-                "user": "Utilizador",
-                "changeLanguage": "Mudar Idioma",
-                "changeTheme": "Mudar Tema",
-                "logoutMessage": "A sair..."
-            }
-        }
+      }
     }
+  },
+  "errors": {
+    "notifications": {
+      "loginErrorTitle": "Erro de Autenticação",
+      "genericError": "Ocorreu um erro inesperado. Tente novamente.",
+      "unauthenticated": "Sessão expirada. Faça login novamente.",
+      "serverError": "Erro interno do servidor. Tente novamente mais tarde.",
+      "invalidCredentials": "Email ou palavra-passe incorretos.",
+      "userNotFound": "Utilizador não encontrado.",
+      "accountLocked": "Conta bloqueada. Contacte o suporte.",
+      "emailNotVerified": "Email não verificado. Consulte a sua caixa de entrada.",
+      "validationError": "Dados inválidos. Verifique as informações fornecidas.",
+      "updateError": "Erro ao atualizar dados. Tente novamente.",
+      "invalidPassword": "Palavra-passe atual incorreta.",
+      "registerSuccess": "Conta criada com sucesso!",
+      "registerError": "Erro ao criar conta. Tente novamente.",
+      "logoutSuccess": "Sessão terminada com sucesso."
+    }
+  },
+  "loader": {
+    "loading": "A carregar tema..."
+  },
+  "core": {
+    "components": {
+      "buttonTheme": {
+        "lightMode": "Modo Claro",
+        "darkMode": "Modo Escuro"
+      },
+      "header": {
+        "title": "Nome do Projeto",
+        "user": "Utilizador",
+        "changeLanguage": "Alterar Idioma",
+        "changeTheme": "Alterar Tema",
+        "logoutMessage": "A terminar sessão..."
+      }
+    }
+  }
 }
