@@ -4,17 +4,17 @@
       "pages": {
         "login": {
           "loginTitle": "Bon retour !",
-          "loginSubtitle": "Veuillez entrer vos informations pour vous connecter.",
+          "loginSubtitle": "Veuillez saisir vos informations pour continuer.",
           "labelEmail": "E-mail",
           "labelPassword": "Mot de passe",
           "placeholderEmail": "jean@email.com",
           "textCreateAccount": "Vous n'avez pas de compte ?",
           "buttonLogin": "Se connecter",
           "linkCreateAccount": " Créer un compte",
-          "errorEmailRequired": "Veuillez entrer un e-mail.",
-          "errorEmailInvalid": "Veuillez entrer un e-mail valide.",
-          "errorPasswordRequired": "Veuillez entrer un mot de passe.",
-          "errorPasswordMinLength": "Le mot de passe doit contenir au moins 8 caractères."
+          "errorEmailRequired": "Veuillez saisir un e-mail.",
+          "errorEmailInvalid": "Veuillez saisir un e-mail valide.",
+          "errorPasswordRequired": "Veuillez saisir un mot de passe.",
+          "errorPasswordMinLength": "Le mot de passe doit comporter au moins 8 caractères."
         },
         "createAccount": {
           "title": "Créez votre compte",
@@ -30,14 +30,14 @@
           "buttonCreateAccount": "Créer un compte",
           "textCreateAccount": "Vous avez déjà un compte ?",
           "linkLogin": " Se connecter",
-          "errorFirstName": "Veuillez entrer votre prénom.",
-          "errorLastName": "Veuillez entrer votre nom.",
-          "errorPhone": "Veuillez entrer un numéro de téléphone.",
-          "errorPhoneInvalid": "Veuillez entrer un numéro de téléphone valide.",
-          "errorEmail": "Veuillez entrer un e-mail.",
-          "errorEmailInvalid": "Veuillez entrer un e-mail valide.",
-          "errorPassword": "Veuillez entrer un mot de passe.",
-          "errorPasswordMinLength": "Le mot de passe doit contenir au moins 8 caractères.",
+          "errorFirstName": "Veuillez saisir votre prénom.",
+          "errorLastName": "Veuillez saisir votre nom.",
+          "errorPhone": "Veuillez saisir un numéro de téléphone.",
+          "errorPhoneInvalid": "Veuillez saisir un numéro de téléphone valide.",
+          "errorEmail": "Veuillez saisir un e-mail.",
+          "errorEmailInvalid": "Veuillez saisir un e-mail valide.",
+          "errorPassword": "Veuillez saisir un mot de passe.",
+          "errorPasswordMinLength": "Le mot de passe doit comporter au moins 8 caractères.",
           "errorConfirmPasswordRequired": "Veuillez confirmer votre mot de passe.",
           "errorConfirmPassword": "Les mots de passe ne correspondent pas.",
           "passwordRequirements": {
@@ -45,7 +45,7 @@
             "lowercase": "Au moins 1 lettre minuscule (a-z)",
             "minLength": "Minimum {{minLength}} caractères",
             "specialChar": "Au moins 1 caractère spécial (!@#$%^&*)",
-            "commonSequence": "Évitez les séquences courantes du clavier"
+            "commonSequence": "Évitez les séquences de clavier courantes"
           }
         }
       },
@@ -68,39 +68,55 @@
       }
     }
   },
-  "errors": {
-    "notifications": {
-      "loginErrorTitle": "Erreur de connexion",
-      "genericError": "Une erreur inattendue s'est produite. Réessayez.",
-      "unauthenticated": "Session expirée. Veuillez vous reconnecter.",
-      "serverError": "Erreur interne du serveur. Réessayez plus tard.",
-      "invalidCredentials": "E-mail ou mot de passe incorrect.",
-      "userNotFound": "Utilisateur non trouvé.",
-      "accountLocked": "Compte bloqué. Contactez le support.",
-      "emailNotVerified": "E-mail non vérifié. Vérifiez votre boîte de réception.",
-      "validationError": "Données invalides. Vérifiez les informations.",
-      "updateError": "Erreur lors de la mise à jour.",
-      "invalidPassword": "Mot de passe actuel incorrect.",
-      "registerSuccess": "Compte créé avec succès !",
-      "registerError": "Erreur lors de la création du compte.",
-      "logoutSuccess": "Déconnexion réussie."
-    }
-  },
   "loader": {
     "loading": "Chargement du thème..."
   },
   "core": {
     "components": {
       "buttonTheme": {
-        "lightMode": "Mode clair",
-        "darkMode": "Mode sombre"
+        "lightMode": "Mode Clair",
+        "darkMode": "Mode Sombre"
       },
       "header": {
         "title": "Nom du Projet",
         "user": "Utilisateur",
         "changeLanguage": "Changer de langue",
-        "changeTheme": "Changer le thème",
-        "logoutMessage": "Déconnexion..."
+        "changeTheme": "Changer de thème",
+        "logoutMessage": "Déconnexion en cours..."
+      }
+    }
+  },
+  "errors": {
+    "types": {
+      "emailAlreadyRegistered": {
+        "type": "email_already_registered",
+        "title": "Cet e-mail est déjà enregistré.",
+        "message": "Cet e-mail est déjà enregistré. Veuillez essayer un autre e-mail ou vous connecter."
+      },
+      "internalServerError": {
+        "type": "internal_server_error",
+        "title": "Erreur Interne du Serveur",
+        "message": "Une erreur inattendue s'est produite. Veuillez réessayer plus tard."
+      },
+      "invalidCredentials": {
+        "type": "invalid_credentials",
+        "title": "Identifiants Invalides",
+        "message": "L'e-mail ou le mot de passe fourni est incorrect, veuillez réessayer."
+      },
+      "missingCredentials": {
+        "type": "missing_credentials",
+        "title": "Identifiants Manquants",
+        "message": "L'e-mail et le mot de passe sont obligatoires."
+      },
+      "userNotFound": {
+        "type": "missing_credentials",
+        "title": "E-mail Non Enregistré",
+        "message": "L'e-mail fourni n'est associé à aucun compte."
+      },
+      "phoneAlreadyRegistered": {
+        "type": "phone_already_registered",
+        "title": "Téléphone Déjà Enregistré",
+        "message": "Ce numéro de téléphone est déjà associé à un compte existant."
       }
     }
   }

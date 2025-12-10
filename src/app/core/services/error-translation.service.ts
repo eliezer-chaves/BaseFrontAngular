@@ -9,16 +9,31 @@ export class ErrorTranslationService {
   // Mapeamento dos tipos de erro para chaves de tradução
   private errorTypeMap: { [key: string]: string } = {
     'email_already_registered': 'errors.types.emailAlreadyRegistered.type',
+    'internal_server_error': 'errors.types.internalServerError.type',
+    'invalid_credentials': 'errors.types.invalidCredentials.type',
+    "missing_credentials": 'errors.types.missingCredentials.type',
+    "user_not_found": 'errors.types.userNotFound.type',
+    "phone_already_registered": 'errors.types.phoneAlreadyRegistered.type'
 
   };
 
   private errorTitleMap: { [key: string]: string } = {
     'email_already_registered': 'errors.types.emailAlreadyRegistered.title',
+    'internal_server_error': 'errors.types.internalServerError.title',
+    'invalid_credentials': 'errors.types.invalidCredentials.title',
+    "missing_credentials": 'errors.types.missingCredentials.title',
+    "phone_already_registered": 'errors.types.phoneAlreadyRegistered.title'
+
 
   };
 
   private errorMessageMap: { [key: string]: string } = {
     'email_already_registered': 'errors.types.emailAlreadyRegistered.message',
+    'internal_server_error': 'errors.types.internalServerError.message',
+    'invalid_credentials': 'errors.types.invalidCredentials.message',
+    "missing_credentials": 'errors.types.missingCredentials.message',
+    "phone_already_registered": 'errors.types.phoneAlreadyRegistered.message'
+
 
   };
 
@@ -43,8 +58,8 @@ export class ErrorTranslationService {
 
     // Caso não exista no mapa → fallback usando próprio backend
     return {
-      title: error?.title || this.translocoService.translate('errors.notifications.genericErrorTitle'),
-      message: error?.message || this.translocoService.translate('errors.notifications.genericError')
+      title: error?.title,
+      message: error?.message
     };
   }
 

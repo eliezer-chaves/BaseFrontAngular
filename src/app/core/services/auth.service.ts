@@ -35,7 +35,7 @@ export class AuthService {
 			usr_phone: data.usr_phone,
 		};
 
-		return this.http.post<any>(`${this.API_URL}/users/signup`, mapped, { withCredentials: true }).pipe(
+		return this.http.post<any>(`${this.API_URL}/auth/signup`, mapped, { withCredentials: true }).pipe(
 			switchMap(() => this.getMe()),
 			tap(response => {
 				this.isInitialized = true;
@@ -88,7 +88,7 @@ export class AuthService {
 				this.isInitialized = true;
 				this.router.navigate(['/']);
 			}),
-			catchError(this.handleError)
+			catchError(error => this.handleError(error))
 		);
 	}
 
@@ -130,12 +130,7 @@ export class AuthService {
 			withCredentials: true
 		}).pipe(
 			tap(user => this.currentUserSubject.next(user)),
-			catchError(error => {
-				if (error.status === 401) {
-					this.currentUserSubject.next(null);
-				}
-				return this.handleError(error);
-			})
+			catchError(error => this.handleError(error))
 		);
 	}
 

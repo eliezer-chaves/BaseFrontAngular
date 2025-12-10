@@ -4,42 +4,42 @@
       "pages": {
         "login": {
           "loginTitle": "Bentornato!",
-          "loginSubtitle": "Inserisci i tuoi dati per accedere.",
-          "labelEmail": "Email",
+          "loginSubtitle": "Per favore, inserisci i tuoi dati per continuare.",
+          "labelEmail": "E-mail",
           "labelPassword": "Password",
-          "placeholderEmail": "mario@email.com",
+          "placeholderEmail": "giovanni@email.com",
           "textCreateAccount": "Non hai un account?",
           "buttonLogin": "Accedi",
-          "linkCreateAccount": " Crea account",
-          "errorEmailRequired": "Inserisci un'email.",
-          "errorEmailInvalid": "Inserisci un'email valida.",
-          "errorPasswordRequired": "Inserisci una password.",
-          "errorPasswordMinLength": "La password deve contenere almeno 8 caratteri."
+          "linkCreateAccount": " Crea Account",
+          "errorEmailRequired": "Per favore, inserisci un'email.",
+          "errorEmailInvalid": "Per favore, inserisci un'email valida.",
+          "errorPasswordRequired": "Per favore, inserisci una password.",
+          "errorPasswordMinLength": "La password deve essere di almeno 8 caratteri."
         },
         "createAccount": {
           "title": "Crea il tuo account",
           "labelFirstName": "Nome",
-          "placeholderFirstName": "Mario",
+          "placeholderFirstName": "Giovanni",
           "labelLastName": "Cognome",
           "placeholderLastName": "Rossi",
           "labelPhone": "Telefono",
-          "labelEmail": "Email",
-          "placeholderEmail": "mario@email.com",
+          "labelEmail": "E-mail",
+          "placeholderEmail": "giovanni@email.com",
           "labelPassword": "Password",
-          "labelConfirmPassword": "Conferma password",
-          "buttonCreateAccount": "Crea account",
+          "labelConfirmPassword": "Conferma Password",
+          "buttonCreateAccount": "Crea Account",
           "textCreateAccount": "Hai già un account?",
           "linkLogin": " Accedi",
-          "errorFirstName": "Inserisci il tuo nome.",
-          "errorLastName": "Inserisci il tuo cognome.",
-          "errorPhone": "Inserisci un numero di telefono.",
-          "errorPhoneInvalid": "Inserisci un numero di telefono valido.",
-          "errorEmail": "Inserisci un'email.",
-          "errorEmailInvalid": "Inserisci un'email valida.",
-          "errorPassword": "Inserisci una password.",
-          "errorPasswordMinLength": "La password deve contenere almeno 8 caratteri.",
-          "errorConfirmPasswordRequired": "Conferma la tua password.",
-          "errorConfirmPassword": "Le password non coincidono.",
+          "errorFirstName": "Per favore, inserisci il tuo nome.",
+          "errorLastName": "Per favore, inserisci il tuo cognome.",
+          "errorPhone": "Per favore, inserisci un numero di telefono.",
+          "errorPhoneInvalid": "Per favore, inserisci un numero di telefono valido.",
+          "errorEmail": "Per favore, inserisci un'email.",
+          "errorEmailInvalid": "Per favore, inserisci un'email valida.",
+          "errorPassword": "Per favore, inserisci una password.",
+          "errorPasswordMinLength": "La password deve essere di almeno 8 caratteri.",
+          "errorConfirmPasswordRequired": "Per favore, conferma la tua password.",
+          "errorConfirmPassword": "Le password non corrispondono.",
           "passwordRequirements": {
             "uppercase": "Almeno 1 lettera maiuscola (A-Z)",
             "lowercase": "Almeno 1 lettera minuscola (a-z)",
@@ -54,7 +54,7 @@
           "searchPlaceholder": "Cerca...",
           "zeroSearchResults": "Nessun risultato trovato",
           "clearSearchAriaLabel": "Cancella ricerca",
-          "countryListAriaLabel": "Lista dei paesi",
+          "countryListAriaLabel": "Lista paesi",
           "selectedCountryAriaLabel": "Paese selezionato"
         }
       }
@@ -62,45 +62,61 @@
     "dashboard": {
       "pages": {
         "dashboard": {
-          "titleWelcome": "Benvenuto(a), ",
+          "titleWelcome": "Benvenuto, ",
           "buttonLogout": "Esci"
         }
       }
     }
   },
-  "errors": {
-    "notifications": {
-      "loginErrorTitle": "Errore di accesso",
-      "genericError": "Si è verificato un errore imprevisto. Riprova.",
-      "unauthenticated": "Sessione scaduta. Effettua nuovamente l'accesso.",
-      "serverError": "Errore interno del server. Riprova più tardi.",
-      "invalidCredentials": "Email o password errati.",
-      "userNotFound": "Utente non trovato.",
-      "accountLocked": "Account bloccato. Contatta il supporto.",
-      "emailNotVerified": "Email non verificata. Controlla la tua casella di posta.",
-      "validationError": "Dati non validi. Verifica le informazioni.",
-      "updateError": "Errore durante l'aggiornamento dei dati.",
-      "invalidPassword": "Password attuale errata.",
-      "registerSuccess": "Account creato con successo!",
-      "registerError": "Errore durante la creazione dell'account.",
-      "logoutSuccess": "Disconnessione effettuata."
-    }
-  },
   "loader": {
-    "loading": "Caricamento del tema..."
+    "loading": "Caricamento tema..."
   },
   "core": {
     "components": {
       "buttonTheme": {
-        "lightMode": "Modalità chiara",
-        "darkMode": "Modalità scura"
+        "lightMode": "Modalità Chiara",
+        "darkMode": "Modalità Scura"
       },
       "header": {
-        "title": "Nome del Progetto",
+        "title": "Nome Progetto",
         "user": "Utente",
-        "changeLanguage": "Cambia lingua",
-        "changeTheme": "Cambia tema",
-        "logoutMessage": "Disconnessione..."
+        "changeLanguage": "Cambia Lingua",
+        "changeTheme": "Cambia Tema",
+        "logoutMessage": "Uscita in corso..."
+      }
+    }
+  },
+  "errors": {
+    "types": {
+      "emailAlreadyRegistered": {
+        "type": "email_already_registered",
+        "title": "Questa email è già registrata.",
+        "message": "Questa email è già registrata. Per favore, prova un'altra email o accedi."
+      },
+      "internalServerError": {
+        "type": "internal_server_error",
+        "title": "Errore Interno del Server",
+        "message": "Si è verificato un errore imprevisto. Per favore, riprova più tardi."
+      },
+      "invalidCredentials": {
+        "type": "invalid_credentials",
+        "title": "Credenziali Non Valide",
+        "message": "L'email o la password forniti non sono corretti, riprova."
+      },
+      "missingCredentials": {
+        "type": "missing_credentials",
+        "title": "Credenziali Mancanti",
+        "message": "Email e password sono obbligatorie."
+      },
+      "userNotFound": {
+        "type": "missing_credentials",
+        "title": "Email Non Registrata",
+        "message": "L'email fornita non è associata a nessun account."
+      },
+      "phoneAlreadyRegistered": {
+        "type": "phone_already_registered",
+        "title": "Telefono Già Registrato",
+        "message": "Questo numero di telefono è già associato a un account esistente."
       }
     }
   }

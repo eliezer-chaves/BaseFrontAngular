@@ -68,7 +68,6 @@
       }
     }
   },
-  
   "loader": {
     "loading": "Loading theme..."
   },
@@ -93,6 +92,31 @@
         "type": "email_already_registered",
         "title": "This email is already registered.",
         "message": "This email is already registered. Please try another email or sign in."
+      },
+      "internalServerError": {
+        "type": "internal_server_error",
+        "title": "Internal Server Error",
+        "message": "An unexpected error occurred. Please try again later."
+      },
+      "invalidCredentials": {
+        "type": "invalid_credentials",
+        "title": "Invalid Credentials",
+        "message": "The email or password provided is incorrect, try again."
+      },
+      "missingCredentials": {
+        "type": "missing_credentials",
+        "title": "Missing Credentials",
+        "message": "Email and password are required."
+      },
+      "userNotFound": {
+        "type": "missing_credentials",
+        "title": "Email Not Registered",
+        "message": "The email provided is not associated with any account."
+      },
+      "phoneAlreadyRegistered": {
+        "type": "phone_already_registered",
+        "title": "Phone Already Registered",
+        "message": "This phone number is already associated with an existing account."
       }
     }
   }

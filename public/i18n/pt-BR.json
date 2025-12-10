@@ -1,98 +1,123 @@
 {
-    "domain": {
-        "auth": {
-            "pages": {
-                "login": {
-                    "loginTitle": "Bem-vindo de volta! ",
-                    "loginSubtitle": "Por favor, insira seus dados para entrar.",
-                    "labelEmail": "Email",
-                    "labelPassword": "Senha",
-                    "placeholderEmail": "joao@email.com",
-                    "textCreateAccount": "Ainda não tem uma conta?",
-                    "buttonLogin": "Entrar",
-                    "linkCreateAccount": " Criar Conta",
-                    "errorEmailRequired": "Por favor, insira um email.",
-                    "errorEmailInvalid": "Por favor, insira um email válido.",
-                    "errorPasswordRequired": "Por favor, insira uma senha.",
-                    "errorPasswordMinLength": "A senha deve ter pelo menos 8 caracteres."
-                },
-                "createAccount": {
-                    "title": "Crie sua conta",
-                    "labelFirstName": "Nome",
-                    "placeholderFirstName": "João",
-                    "labelLastName": "Sobrenome",
-                    "placeholderLastName": "Silva",
-                    "labelPhone": "Celular",
-                    "labelEmail": "Email",
-                    "placeholderEmail": "joao@email.com",
-                    "labelPassword": "Senha",
-                    "labelConfirmPassword": "Confirmar Senha",
-                    "buttonCreateAccount": "Criar Conta",
-                    "textCreateAccount": "Já tem uma conta?",
-                    "linkLogin": " Entrar",
-                    "errorFirstName": "Por favor, insira seu nome.",
-                    "errorLastName": "Por favor, insira seu sobrenome.",
-                    "errorPhone": "Por favor, insira um número de celular.",
-                    "errorPhoneInvalid": "Por favor, insira um número de celular válido.",
-                    "errorEmail": "Por favor, insira um email.",
-                    "errorEmailInvalid": "Por favor, insira um email válido.",
-                    "errorPassword": "Por favor, insira uma senha.",
-                    "errorPasswordMinLength": "A senha deve ter pelo menos 8 caracteres.",
-                    "errorConfirmPasswordRequired": "Por favor, confirme sua senha.",
-                    "errorConfirmPassword": "As senhas não coincidem.",
-                    "passwordRequirements": {
-                        "uppercase": "Pelo menos 1 letra maiúscula (A-Z)",
-                        "lowercase": "Pelo menos 1 letra minúscula (a-z)",
-                        "minLength": "Mínimo {{minLength}} caracteres",
-                        "specialChar": "Pelo menos 1 caractere especial (!@#$%^&*)",
-                        "commonSequence": "Evite sequências comuns no teclado"
-                    }
-                }
-            },
-            "components": {
-                "phoneInput": {
-                    "searchPlaceholder": "Buscar...",
-                    "zeroSearchResults": "Nenhum resultado encontrado",
-                    "clearSearchAriaLabel": "Limpar busca",
-                    "countryListAriaLabel": "Lista de países",
-                    "selectedCountryAriaLabel": "País selecionado"
-                }
-            }
+  "domain": {
+    "auth": {
+      "pages": {
+        "login": {
+          "loginTitle": "Bem-vindo de volta!",
+          "loginSubtitle": "Por favor, insira seus dados para continuar.",
+          "labelEmail": "E-mail",
+          "labelPassword": "Senha",
+          "placeholderEmail": "joao@email.com",
+          "textCreateAccount": "Não tem uma conta?",
+          "buttonLogin": "Entrar",
+          "linkCreateAccount": " Criar Conta",
+          "errorEmailRequired": "Por favor, insira um e-mail.",
+          "errorEmailInvalid": "Por favor, insira um e-mail válido.",
+          "errorPasswordRequired": "Por favor, insira uma senha.",
+          "errorPasswordMinLength": "A senha deve ter pelo menos 8 caracteres."
         },
+        "createAccount": {
+          "title": "Crie sua conta",
+          "labelFirstName": "Nome",
+          "placeholderFirstName": "João",
+          "labelLastName": "Sobrenome",
+          "placeholderLastName": "Silva",
+          "labelPhone": "Telefone",
+          "labelEmail": "E-mail",
+          "placeholderEmail": "joao@email.com",
+          "labelPassword": "Senha",
+          "labelConfirmPassword": "Confirmar Senha",
+          "buttonCreateAccount": "Criar Conta",
+          "textCreateAccount": "Já tem uma conta?",
+          "linkLogin": " Entrar",
+          "errorFirstName": "Por favor, insira seu nome.",
+          "errorLastName": "Por favor, insira seu sobrenome.",
+          "errorPhone": "Por favor, insira um número de telefone.",
+          "errorPhoneInvalid": "Por favor, insira um número de telefone válido.",
+          "errorEmail": "Por favor, insira um e-mail.",
+          "errorEmailInvalid": "Por favor, insira um e-mail válido.",
+          "errorPassword": "Por favor, insira uma senha.",
+          "errorPasswordMinLength": "A senha deve ter pelo menos 8 caracteres.",
+          "errorConfirmPasswordRequired": "Por favor, confirme sua senha.",
+          "errorConfirmPassword": "As senhas não coincidem.",
+          "passwordRequirements": {
+            "uppercase": "Pelo menos 1 letra maiúscula (A-Z)",
+            "lowercase": "Pelo menos 1 letra minúscula (a-z)",
+            "minLength": "Mínimo {{minLength}} caracteres",
+            "specialChar": "Pelo menos 1 caractere especial (!@#$%^&*)",
+            "commonSequence": "Evite sequências comuns do teclado"
+          }
+        }
+      },
+      "components": {
+        "phoneInput": {
+          "searchPlaceholder": "Pesquisar...",
+          "zeroSearchResults": "Nenhum resultado encontrado",
+          "clearSearchAriaLabel": "Limpar pesquisa",
+          "countryListAriaLabel": "Lista de países",
+          "selectedCountryAriaLabel": "País selecionado"
+        }
+      }
+    },
+    "dashboard": {
+      "pages": {
         "dashboard": {
-            "pages": {
-                "dashboard": {
-                    "titleWelcome": "Bem vindo(a), ",
-                    "buttonLogout": "Sair"
-                }
-            }
+          "titleWelcome": "Bem-vindo, ",
+          "buttonLogout": "Sair"
         }
-    },
-    "loader": {
-        "loading": "Carregando tema..."
-    },
-    "core": {
-        "components": {
-            "buttonTheme": {
-                "lightMode": "Modo Claro",
-                "darkMode": "Modo Escuro"
-            },
-            "header": {
-                "title": "Nome do Projeto",
-                "user": "Usuário",
-                "changeLanguage": "Mudar Idioma",
-                "changeTheme": "Mudar Tema",
-                "logoutMessage": "Saindo..."
-            }
-        }
-    },
-    "errors": {
-        "types": {
-            "emailAlreadyRegistered": {
-                "type": "email_already_registered",
-                "title": "Email já cadastrado.",
-                "message": "Este Email já está cadastrado. Tente novamente ou tente fazer login."
-            }
-        }
+      }
     }
+  },
+  "loader": {
+    "loading": "Carregando tema..."
+  },
+  "core": {
+    "components": {
+      "buttonTheme": {
+        "lightMode": "Modo Claro",
+        "darkMode": "Modo Escuro"
+      },
+      "header": {
+        "title": "Nome do Projeto",
+        "user": "Usuário",
+        "changeLanguage": "Alterar Idioma",
+        "changeTheme": "Alterar Tema",
+        "logoutMessage": "Saindo..."
+      }
+    }
+  },
+  "errors": {
+    "types": {
+      "emailAlreadyRegistered": {
+        "type": "email_already_registered",
+        "title": "Este e-mail já está registrado.",
+        "message": "Este e-mail já está registrado. Por favor, tente outro e-mail ou faça login."
+      },
+      "internalServerError": {
+        "type": "internal_server_error",
+        "title": "Erro Interno do Servidor",
+        "message": "Ocorreu um erro inesperado. Por favor, tente novamente mais tarde."
+      },
+      "invalidCredentials": {
+        "type": "invalid_credentials",
+        "title": "Credenciais Inválidas",
+        "message": "O e-mail ou senha fornecidos estão incorretos, tente novamente."
+      },
+      "missingCredentials": {
+        "type": "missing_credentials",
+        "title": "Credenciais Ausentes",
+        "message": "E-mail e senha são obrigatórios."
+      },
+      "userNotFound": {
+        "type": "missing_credentials",
+        "title": "E-mail Não Registrado",
+        "message": "O e-mail fornecido não está associado a nenhuma conta."
+      },
+      "phoneAlreadyRegistered": {
+        "type": "phone_already_registered",
+        "title": "Telefone Já Registrado",
+        "message": "Este número de telefone já está associado a uma conta existente."
+      }
+    }
+  }
 }

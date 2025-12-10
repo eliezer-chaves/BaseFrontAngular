@@ -22,6 +22,7 @@ import { ErrorTranslationService } from '../../../../core/services/error-transla
 import { NzDividerComponent } from 'ng-zorro-antd/divider';
 import { ButtonLanguageComponent } from "../../../../core/components/button-language/button-language.component";
 import { ButtonThemeComponent } from "../../../../core/components/button-theme/button-theme.component";
+import { environment } from '../../../../environments/environment';
 
 declare const google: any;
 
@@ -36,6 +37,8 @@ declare const google: any;
 export class LoginPageComponent {
   loadingService = inject(LoadingService);
   isLoading = false;
+    minLenghtPassword: number = environment.passwordMinLenght
+  
 
   private fb = inject(NonNullableFormBuilder);
   constructor(
@@ -48,8 +51,9 @@ export class LoginPageComponent {
 
   validateForm = this.fb.group({
     usr_email: this.fb.control('', [Validators.required, Validators.email]),
-    usr_password: this.fb.control('', [Validators.required])
-  });
+    usr_password: this.fb.control('', [Validators.required, Validators.required,
+			Validators.minLength(environment.passwordMinLenght)])
+  }); 
 
   submitForm() {
     if (this.validateForm.valid) {

@@ -4,39 +4,39 @@
       "pages": {
         "login": {
           "loginTitle": "Bem-vindo de volta!",
-          "loginSubtitle": "Por favor, introduza os seus dados para entrar.",
-          "labelEmail": "Email",
+          "loginSubtitle": "Por favor, insira os seus dados para continuar.",
+          "labelEmail": "E-mail",
           "labelPassword": "Palavra-passe",
           "placeholderEmail": "joao@email.com",
-          "textCreateAccount": "Ainda não tem conta?",
-          "buttonLogin": "Entrar",
+          "textCreateAccount": "Não tem uma conta?",
+          "buttonLogin": "Iniciar sessão",
           "linkCreateAccount": " Criar Conta",
-          "errorEmailRequired": "Por favor, introduza um email.",
-          "errorEmailInvalid": "Por favor, introduza um email válido.",
-          "errorPasswordRequired": "Por favor, introduza uma palavra-passe.",
+          "errorEmailRequired": "Por favor, insira um e-mail.",
+          "errorEmailInvalid": "Por favor, insira um e-mail válido.",
+          "errorPasswordRequired": "Por favor, insira uma palavra-passe.",
           "errorPasswordMinLength": "A palavra-passe deve ter pelo menos 8 caracteres."
         },
         "createAccount": {
           "title": "Crie a sua conta",
-          "labelFirstName": "Nome",
+          "labelFirstName": "Primeiro Nome",
           "placeholderFirstName": "João",
           "labelLastName": "Apelido",
           "placeholderLastName": "Silva",
-          "labelPhone": "Telemóvel",
-          "labelEmail": "Email",
+          "labelPhone": "Telefone",
+          "labelEmail": "E-mail",
           "placeholderEmail": "joao@email.com",
           "labelPassword": "Palavra-passe",
           "labelConfirmPassword": "Confirmar Palavra-passe",
           "buttonCreateAccount": "Criar Conta",
-          "textCreateAccount": "Já tem conta?",
-          "linkLogin": " Entrar",
-          "errorFirstName": "Por favor, introduza o seu nome.",
-          "errorLastName": "Por favor, introduza o seu apelido.",
-          "errorPhone": "Por favor, introduza um número de telemóvel.",
-          "errorPhoneInvalid": "Por favor, introduza um número de telemóvel válido.",
-          "errorEmail": "Por favor, introduza um email.",
-          "errorEmailInvalid": "Por favor, introduza um email válido.",
-          "errorPassword": "Por favor, introduza uma palavra-passe.",
+          "textCreateAccount": "Já tem uma conta?",
+          "linkLogin": " Iniciar Sessão",
+          "errorFirstName": "Por favor, insira o seu primeiro nome.",
+          "errorLastName": "Por favor, insira o seu apelido.",
+          "errorPhone": "Por favor, insira um número de telefone.",
+          "errorPhoneInvalid": "Por favor, insira um número de telefone válido.",
+          "errorEmail": "Por favor, insira um e-mail.",
+          "errorEmailInvalid": "Por favor, insira um e-mail válido.",
+          "errorPassword": "Por favor, insira uma palavra-passe.",
           "errorPasswordMinLength": "A palavra-passe deve ter pelo menos 8 caracteres.",
           "errorConfirmPasswordRequired": "Por favor, confirme a sua palavra-passe.",
           "errorConfirmPassword": "As palavras-passe não coincidem.",
@@ -44,8 +44,8 @@
             "uppercase": "Pelo menos 1 letra maiúscula (A-Z)",
             "lowercase": "Pelo menos 1 letra minúscula (a-z)",
             "minLength": "Mínimo {{minLength}} caracteres",
-            "specialChar": "Pelo menos 1 carácter especial (!@#$%^&*)",
-            "commonSequence": "Evite sequências comuns no teclado"
+            "specialChar": "Pelo menos 1 caractere especial (!@#$%^&*)",
+            "commonSequence": "Evite sequências comuns do teclado"
           }
         }
       },
@@ -62,28 +62,10 @@
     "dashboard": {
       "pages": {
         "dashboard": {
-          "titleWelcome": "Bem-vindo(a), ",
-          "buttonLogout": "Sair"
+          "titleWelcome": "Bem-vindo, ",
+          "buttonLogout": "Terminar sessão"
         }
       }
-    }
-  },
-  "errors": {
-    "notifications": {
-      "loginErrorTitle": "Erro de Autenticação",
-      "genericError": "Ocorreu um erro inesperado. Tente novamente.",
-      "unauthenticated": "Sessão expirada. Faça login novamente.",
-      "serverError": "Erro interno do servidor. Tente novamente mais tarde.",
-      "invalidCredentials": "Email ou palavra-passe incorretos.",
-      "userNotFound": "Utilizador não encontrado.",
-      "accountLocked": "Conta bloqueada. Contacte o suporte.",
-      "emailNotVerified": "Email não verificado. Consulte a sua caixa de entrada.",
-      "validationError": "Dados inválidos. Verifique as informações fornecidas.",
-      "updateError": "Erro ao atualizar dados. Tente novamente.",
-      "invalidPassword": "Palavra-passe atual incorreta.",
-      "registerSuccess": "Conta criada com sucesso!",
-      "registerError": "Erro ao criar conta. Tente novamente.",
-      "logoutSuccess": "Sessão terminada com sucesso."
     }
   },
   "loader": {
@@ -101,6 +83,40 @@
         "changeLanguage": "Alterar Idioma",
         "changeTheme": "Alterar Tema",
         "logoutMessage": "A terminar sessão..."
+      }
+    }
+  },
+  "errors": {
+    "types": {
+      "emailAlreadyRegistered": {
+        "type": "email_already_registered",
+        "title": "Este e-mail já está registado.",
+        "message": "Este e-mail já está registado. Por favor, tente outro e-mail ou inicie sessão."
+      },
+      "internalServerError": {
+        "type": "internal_server_error",
+        "title": "Erro Interno do Servidor",
+        "message": "Ocorreu um erro inesperado. Por favor, tente novamente mais tarde."
+      },
+      "invalidCredentials": {
+        "type": "invalid_credentials",
+        "title": "Credenciais Inválidas",
+        "message": "O e-mail ou palavra-passe fornecidos estão incorretos, tente novamente."
+      },
+      "missingCredentials": {
+        "type": "missing_credentials",
+        "title": "Credenciais em Falta",
+        "message": "E-mail e palavra-passe são obrigatórios."
+      },
+      "userNotFound": {
+        "type": "missing_credentials",
+        "title": "E-mail Não Registado",
+        "message": "O e-mail fornecido não está associado a nenhuma conta."
+      },
+      "phoneAlreadyRegistered": {
+        "type": "phone_already_registered",
+        "title": "Telefone Já Registado",
+        "message": "Este número de telefone já está associado a uma conta existente."
       }
     }
   }
