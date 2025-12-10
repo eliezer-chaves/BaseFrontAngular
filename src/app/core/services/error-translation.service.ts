@@ -2,37 +2,50 @@ import { Injectable } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 
 @Injectable({ providedIn: 'root' })
+
+
 export class ErrorTranslationService {
-  
-  private errorMap: { [key: string]: string } = {
-    'unauthenticated': 'errors.notifications.unauthenticated',
-    'server_error': 'errors.notifications.serverError',
-    'invalid_credentials': 'errors.notifications.invalidCredentials',
-    'user_not_found': 'errors.notifications.userNotFound',
-    'account_locked': 'errors.notifications.accountLocked',
-    'email_not_verified': 'errors.notifications.emailNotVerified',
-    'validation_error': 'errors.notifications.validationError',
-    'update_error': 'errors.notifications.updateError',
-    'invalid_password': 'errors.notifications.invalidPassword'
+
+  // Mapeamento dos tipos de erro para chaves de tradução
+  private errorTypeMap: { [key: string]: string } = {
+    'email_already_registered': 'errors.types.emailAlreadyRegistered.type',
+
   };
 
-  constructor(private translocoService: TranslocoService) {}
+  private errorTitleMap: { [key: string]: string } = {
+    'email_already_registered': 'errors.types.emailAlreadyRegistered.title',
+
+  };
+
+  private errorMessageMap: { [key: string]: string } = {
+    'email_already_registered': 'errors.types.emailAlreadyRegistered.message',
+
+  };
+
+
+
+  constructor(private translocoService: TranslocoService) { }
 
   translateBackendError(error: any): { title: string, message: string } {
-    let title = this.translocoService.translate('errors.notifications.loginErrorTitle');
-    let message = '';
+    const type = error?.type;
 
-    if (error.type) {
-      const errorKey = this.errorMap[error.type] || 'errors.notifications.genericError';
-      message = this.translocoService.translate(errorKey);
-      
-      if (message === errorKey && error.message) {
-        message = error.message;
-      }
-    } else {
-      message = this.translocoService.translate('errors.notifications.genericError');
+    // Se o tipo existir no mapa, pegamos as chaves de tradução
+    const titleKey = this.errorTitleMap[type];
+    const messageKey = this.errorMessageMap[type];
+
+    // Se achou o type no map → traduz normalmente
+    if (titleKey && messageKey) {
+      return {
+        title: this.translocoService.translate(titleKey),
+        message: this.translocoService.translate(messageKey)
+      };
     }
 
-    return { title, message };
+    // Caso não exista no mapa → fallback usando próprio backend
+    return {
+      title: error?.title || this.translocoService.translate('errors.notifications.genericErrorTitle'),
+      message: error?.message || this.translocoService.translate('errors.notifications.genericError')
+    };
   }
+
 }

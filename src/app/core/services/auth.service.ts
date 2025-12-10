@@ -41,7 +41,7 @@ export class AuthService {
 				this.isInitialized = true;
 				this.router.navigate(['/']);
 			}),
-			catchError(this.handleError)
+			catchError(error => this.handleError(error))
 		);
 	}
 
@@ -218,18 +218,14 @@ export class AuthService {
 
 	// Tratamento de erros estruturado
 	private handleError(error: any) {
-		if (error.error?.error_type) {
-			return throwError(() => ({
-				type: error.error.error_type,
-				title: error.error.error_title,
-				message: error.error.error_message
-			}));
-		}
+	
+		// const title = error?.error?.detail.title
+		// const message = error?.error?.detail.message
+		// const type = error?.error?.detail.type
 
-		return throwError(() => ({
-			type: 'unexpected_error',
-			title: 'Erro inesperado',
-			message: 'Erro no servidor. Tente novamente mais tarde.'
-		}));
+		return throwError(() => error.error.detail)
+
 	}
+
+
 }

@@ -68,24 +68,7 @@
       }
     }
   },
-  "errors": {
-    "notifications": {
-      "loginErrorTitle": "Login Error",
-      "genericError": "An unexpected error occurred. Please try again.",
-      "unauthenticated": "Session expired. Please log in again.",
-      "serverError": "Internal server error. Please try later.",
-      "invalidCredentials": "Incorrect email or password.",
-      "userNotFound": "User not found.",
-      "accountLocked": "Account locked. Contact support.",
-      "emailNotVerified": "Email not verified. Check your inbox.",
-      "validationError": "Invalid data. Check the information provided.",
-      "updateError": "Error updating data. Please try again.",
-      "invalidPassword": "Incorrect current password.",
-      "registerSuccess": "Account successfully created!",
-      "registerError": "Error creating account. Please try again.",
-      "logoutSuccess": "Logout successful."
-    }
-  },
+  
   "loader": {
     "loading": "Loading theme..."
   },
@@ -101,6 +84,15 @@
         "changeLanguage": "Change Language",
         "changeTheme": "Change Theme",
         "logoutMessage": "Logging out..."
+      }
+    }
+  },
+  "errors": {
+    "types": {
+      "emailAlreadyRegistered": {
+        "type": "email_already_registered",
+        "title": "This email is already registered.",
+        "message": "This email is already registered. Please try another email or sign in."
       }
     }
   }

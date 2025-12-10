@@ -258,6 +258,7 @@ export class CreateAccountPageComponent implements OnInit {
 					this.isLoading = false;
 				},
 				error: (err) => {
+					
 					const { title, message } = this.errorTranslationService.translateBackendError(err);
 
 					this.notificationService.error(title, message);

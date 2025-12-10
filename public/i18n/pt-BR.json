@@ -68,24 +68,6 @@
             }
         }
     },
-    "errors": {
-        "notifications": {
-            "loginErrorTitle": "Erro de Login",
-            "genericError": "Ocorreu um erro inesperado. Tente novamente.",
-            "unauthenticated": "Sessão expirada. Faça login novamente.",
-            "serverError": "Erro interno do servidor. Tente novamente mais tarde.",
-            "invalidCredentials": "E-mail ou senha incorretos.",
-            "userNotFound": "Usuário não encontrado.",
-            "accountLocked": "Conta bloqueada. Entre em contato com o suporte.",
-            "emailNotVerified": "E-mail não verificado. Verifique sua caixa de entrada.",
-            "validationError": "Dados inválidos. Verifique as informações fornecidas.",
-            "updateError": "Erro ao atualizar dados. Tente novamente.",
-            "invalidPassword": "Senha atual incorreta.",
-            "registerSuccess": "Conta criada com sucesso!",
-            "registerError": "Erro ao criar conta. Tente novamente.",
-            "logoutSuccess": "Logout realizado com sucesso."
-        }
-    },
     "loader": {
         "loading": "Carregando tema..."
     },
@@ -101,6 +83,15 @@
                 "changeLanguage": "Mudar Idioma",
                 "changeTheme": "Mudar Tema",
                 "logoutMessage": "Saindo..."
+            }
+        }
+    },
+    "errors": {
+        "types": {
+            "emailAlreadyRegistered": {
+                "type": "email_already_registered",
+                "title": "Email já cadastrado.",
+                "message": "Este Email já está cadastrado. Tente novamente ou tente fazer login."
             }
         }
     }
