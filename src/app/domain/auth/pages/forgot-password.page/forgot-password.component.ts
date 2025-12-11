@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormsModule, NonNullableFormBuilder, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
@@ -41,25 +41,28 @@ export class ForgotPasswordPageComponent {
     private notificationService: NzNotificationService,
     private translocoService: TranslocoService,
     private errorTranslationService: ErrorTranslationService,
+    private router: Router
 
   ) { }
 
   validateForm = this.fb.group({
     usr_email: this.fb.control('', [Validators.required, Validators.email]),
-    usr_password: this.fb.control('', [Validators.required, Validators.required,
-    Validators.minLength(environment.passwordMinLenght)])
   });
 
   submitForm() {
     if (this.validateForm.valid) {
       this.isLoading = true;
 
-      const { usr_email, usr_password } = this.validateForm.value;
-      if (usr_email && usr_password) {
-        this.authService.login(usr_email, usr_password).subscribe({
+      const { usr_email } = this.validateForm.value;
+      if (usr_email) {
+        this.authService.sendEmailCode(usr_email).subscribe({
           next: () => {
             //console.log('Login realizado com sucesso');
             this.isLoading = false;
+            // Email existente → continuar fluxo
+            //localStorage.setItem('reset_email', usr_email);
+            console.log(usr_email)
+            this.router.navigate(['/auth/validate-code']);
           },
           error: (err) => {
             const { title, message } = this.errorTranslationService.translateBackendError(err);
@@ -78,21 +81,4 @@ export class ForgotPasswordPageComponent {
     }
   }
 
-  // ngAfterViewInit(): void {
-  //   setTimeout(() => {
-  //     if (typeof google !== 'undefined' && google.accounts?.id) {
-  //       google.accounts.id.initialize({
-  //         client_id: "776175008574-7uveb1rst7tr3d66sa1sftjnqgdafkmr.apps.googleusercontent.com",
-  //         ux_mode: "redirect",
-  //         context: "signup",
-  //         login_uri: "http://localhost:4200/dashboard",
-  //       });
-
-  //       google.accounts.id.renderButton(
-  //         document.getElementById("g_id_signin_button"),
-  //         { theme: "outline", size: "large", type: "standard", shape: "rectangular" }
-  //       );
-  //     }
-  //   }, 200);
-  // }
 }

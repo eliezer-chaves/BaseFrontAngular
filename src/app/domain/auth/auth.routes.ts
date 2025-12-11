@@ -18,5 +18,9 @@ export const AUTH_ROUTES: Routes = [
   {
     path: 'forgot-password',
     loadComponent: () => import('../../domain/auth/pages/forgot-password.page/forgot-password.component').then(m => m.ForgotPasswordPageComponent)
+  },
+  {
+    path: 'validate-code',
+    loadComponent: () => import('../../domain/auth/pages/validate-code.page/validate-code.page.component').then(m => m.ValidateCodePageComponent)
   }
 ];

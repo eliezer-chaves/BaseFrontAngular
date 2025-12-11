@@ -92,6 +92,19 @@ export class AuthService {
 		);
 	}
 
+	sendEmailCode(usr_email: string): Observable<any> {
+		return this.http.post<any>(
+			`${this.API_URL}/auth/send-email-code`,
+			{ usr_email },
+			{ withCredentials: true }
+		).pipe(
+			// tap(() => {
+			// 	//this.router.navigate(['/reset-password']);
+			// }),
+			catchError(error => this.handleError(error))
+		);
+	}
+
 
 	private logoutTimer: any = null;
 

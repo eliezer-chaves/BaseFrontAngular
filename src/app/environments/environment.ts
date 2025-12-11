@@ -8,11 +8,11 @@ export const environment = {
   languages: [
     { code: 'en', name: 'English', countryCode: 'gb' },
     { code: 'pt-BR', name: 'Português (BR)', countryCode: 'br' },
-    { code: 'de', name: 'Deutsch', countryCode: 'de' },
-    { code: 'es', name: 'Español', countryCode: 'es' },
-    { code: 'fr', name: 'Français', countryCode: 'fr' },
-    { code: 'it', name: 'Italiano', countryCode: 'it' },
-    { code: 'pt-PT', name: 'Português (PT)', countryCode: 'pt' },
+    // { code: 'de', name: 'Deutsch', countryCode: 'de' },
+    // { code: 'es', name: 'Español', countryCode: 'es' },
+    // { code: 'fr', name: 'Français', countryCode: 'fr' },
+    // { code: 'it', name: 'Italiano', countryCode: 'it' },
+    // { code: 'pt-PT', name: 'Português (PT)', countryCode: 'pt' },
   ] as ILanguageConfig[],
 
   get availableLanguageMap(): { [key: string]: string } {
