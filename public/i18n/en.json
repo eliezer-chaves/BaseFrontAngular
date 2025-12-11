@@ -9,12 +9,13 @@
           "labelPassword": "Password",
           "placeholderEmail": "john@email.com",
           "textCreateAccount": "Don't have an account?",
-          "buttonLogin": "Login",
+          "buttonLogin": "Log In",
           "linkCreateAccount": " Create Account",
           "errorEmailRequired": "Please enter an email.",
           "errorEmailInvalid": "Please enter a valid email.",
           "errorPasswordRequired": "Please enter a password.",
-          "errorPasswordMinLength": "Password must be at least 8 characters."
+          "errorPasswordMinLength": "Password must be at least 8 characters.",
+          "linkForgotPassword": " Forgot your password?"
         },
         "createAccount": {
           "title": "Create your account",
@@ -29,7 +30,7 @@
           "labelConfirmPassword": "Confirm Password",
           "buttonCreateAccount": "Create Account",
           "textCreateAccount": "Already have an account?",
-          "linkLogin": " Login",
+          "linkLogin": " Log In",
           "errorFirstName": "Please enter your first name.",
           "errorLastName": "Please enter your last name.",
           "errorPhone": "Please enter a phone number.",
@@ -47,6 +48,12 @@
             "specialChar": "At least 1 special character (!@#$%^&*)",
             "commonSequence": "Avoid common keyboard sequences"
           }
+        },
+        "forgotPassword": {
+          "Title": "Reset Password",
+          "subTitle": "We will send a verification code to the registered email.",
+          "linkGoBackLogin": " Back to Login",
+          "buttonSendCode": "Send Code"
         }
       },
       "components": {
@@ -91,7 +98,7 @@
       "emailAlreadyRegistered": {
         "type": "email_already_registered",
         "title": "This email is already registered.",
-        "message": "This email is already registered. Please try another email or sign in."
+        "message": "This email is already registered. Please try another email or log in."
       },
       "internalServerError": {
         "type": "internal_server_error",
@@ -101,7 +108,7 @@
       "invalidCredentials": {
         "type": "invalid_credentials",
         "title": "Invalid Credentials",
-        "message": "The email or password provided is incorrect, try again."
+        "message": "The email or password provided is incorrect, please try again."
       },
       "missingCredentials": {
         "type": "missing_credentials",
@@ -117,6 +124,20 @@
         "type": "phone_already_registered",
         "title": "Phone Already Registered",
         "message": "This phone number is already associated with an existing account."
+      },
+      "noConnectionApi": {
+        "type": "no_connection_api",
+        "title": "No Connection",
+        "message": "Unable to connect. Check your internet or try again later."
+      }
+    }
+  },
+  "success": {
+    "types": {
+      "passwordResetEmailSent": {
+        "type": "password_reset_email_sent",
+        "title": "Email sent",
+        "message": "Check your email for the reset code."
       }
     }
   }

@@ -130,6 +130,16 @@
         "title": "Sem Conexão",
         "message": "Não foi possível conectar. Verifique sua internet ou tente novamente mais tarde."
       }
+      
+    }
+  },
+  "success":{
+    "types":{
+      "passwordResetEmailSent": {
+        "type": "password_reset_email_sent",
+        "title": "Email enviado",
+        "message": "Verifique seu email para obter o código de redefinição."
+      }
     }
   }
 }
