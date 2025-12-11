@@ -60,7 +60,7 @@ export class ForgotPasswordPageComponent {
             //console.log('Login realizado com sucesso');
             this.isLoading = false;
             // Email existente → continuar fluxo
-            //localStorage.setItem('reset_email', usr_email);
+            localStorage.setItem('reset_email', usr_email);
             console.log(usr_email)
             this.router.navigate(['/auth/validate-code']);
           },

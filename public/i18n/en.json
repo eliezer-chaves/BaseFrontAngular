@@ -138,6 +138,11 @@
         "type": "password_reset_email_sent",
         "title": "Email sent",
         "message": "Check your email for the reset code."
+      },
+      "emailCodeSent": {
+        "type": "email_code_sent",
+        "title": "Code Sent",
+        "message": "The recovery code has been sent to your email."
       }
     }
   }

@@ -13,7 +13,7 @@
                 <nz-form-label class="custom-label">{{'domain.auth.pages.createAccount.labelFirstName' |
                     transloco}}</nz-form-label>
                 <nz-form-control [nzErrorTip]="firstNameErrorTpl">
-                    <input nz-input formControlName="usr_first_name"
+                    <input nz-input formControlName="usr_first_name" tabindex="1"
                         placeholder="{{'domain.auth.pages.createAccount.placeholderFirstName' | transloco}}" />
                     <ng-template #firstNameErrorTpl let-control>
                         {{ control.errors?.['required'] ? ('domain.auth.pages.createAccount.errorFirstName' | transloco)
@@ -25,7 +25,7 @@
                 <nz-form-label class="custom-label">{{'domain.auth.pages.createAccount.labelLastName' |
                     transloco}}</nz-form-label>
                 <nz-form-control [nzErrorTip]="lastNameErrorTpl">
-                    <input nz-input formControlName="usr_last_name"
+                    <input nz-input formControlName="usr_last_name" 
                         placeholder="{{'domain.auth.pages.createAccount.placeholderLastName' | transloco}}" />
                     <ng-template #lastNameErrorTpl let-control>
                         {{ control.errors?.['required'] ? ('domain.auth.pages.createAccount.errorLastName' | transloco)

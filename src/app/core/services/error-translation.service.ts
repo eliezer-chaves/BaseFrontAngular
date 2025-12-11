@@ -15,7 +15,8 @@ export class ErrorTranslationService {
     "user_not_found": 'errors.types.userNotFound.type',
     "phone_already_registered": 'errors.types.phoneAlreadyRegistered.type',
     "no_connection_api": "errors.types.noConnectionApi.type",
-    "password_reset_email_sent": "success.types.passwordResetEmailSent.type"
+    "password_reset_email_sent": "success.types.passwordResetEmailSent.type",
+    "email_code_sent": "success.types.emailCodeSent.type"
 
   };
 
@@ -24,9 +25,12 @@ export class ErrorTranslationService {
     'internal_server_error': 'errors.types.internalServerError.title',
     'invalid_credentials': 'errors.types.invalidCredentials.title',
     "missing_credentials": 'errors.types.missingCredentials.title',
+    "user_not_found": 'errors.types.userNotFound.title',
+
     "phone_already_registered": 'errors.types.phoneAlreadyRegistered.title',
     "no_connection_api": "errors.types.noConnectionApi.title",
-    "password_reset_email_sent": "success.types.passwordResetEmailSent.title"
+    "password_reset_email_sent": "success.types.passwordResetEmailSent.title",
+    "email_code_sent": "success.types.emailCodeSent.title"
   };
 
   private MessageMap: { [key: string]: string } = {
@@ -34,9 +38,12 @@ export class ErrorTranslationService {
     'internal_server_error': 'errors.types.internalServerError.message',
     'invalid_credentials': 'errors.types.invalidCredentials.message',
     "missing_credentials": 'errors.types.missingCredentials.message',
+    "user_not_found": 'errors.types.userNotFound.message',
+
     "phone_already_registered": 'errors.types.phoneAlreadyRegistered.message',
     'no_connection_api': 'errors.types.noConnectionApi.message',
-    "password_reset_email_sent": "success.types.passwordResetEmailSent.message"
+    "password_reset_email_sent": "success.types.passwordResetEmailSent.message",
+    "email_code_sent": "success.types.emailCodeSent.message"
   };
 
 
@@ -44,13 +51,16 @@ export class ErrorTranslationService {
   constructor(private translocoService: TranslocoService) { }
 
   translateBackendError(error: any): { title: string, message: string } {
-    const type = error?.type;
 
-    // Se o tipo existir no mapa, pegamos as chaves de tradução
+
+
+    const backendError = error?.error?.detail || error?.error || error;
+
+    const type = backendError?.type;
+
     const titleKey = this.TitleMap[type];
     const messageKey = this.MessageMap[type];
 
-    // Se achou o type no map → traduz normalmente
     if (titleKey && messageKey) {
       return {
         title: this.translocoService.translate(titleKey),
@@ -58,10 +68,9 @@ export class ErrorTranslationService {
       };
     }
 
-    // Caso não exista no mapa → fallback usando próprio backend
     return {
-      title: error?.title,
-      message: error?.message
+      title: backendError?.title || 'Erro',
+      message: backendError?.message || 'Ocorreu um erro inesperado.'
     };
   }
 

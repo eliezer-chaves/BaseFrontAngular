@@ -139,6 +139,11 @@
         "type": "password_reset_email_sent",
         "title": "Email enviado",
         "message": "Verifique seu email para obter o código de redefinição."
+      },
+      "emailCodeSent": {
+        "type": "email_code_sent",
+        "title": "Código Enviado",
+        "message": "O código de recuperação foi enviado para seu e-mail."
       }
     }
   }

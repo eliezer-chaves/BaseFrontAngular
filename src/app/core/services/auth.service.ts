@@ -231,6 +231,7 @@ export class AuthService {
 		// const message = error?.error?.detail.message
 		// const type = error?.error?.detail.type
 		if (error?.error?.detail) {
+			
 			return throwError(() => error.error.detail);
 		}
 

@@ -24,7 +24,14 @@ intl-tel-input .iti .iti__selected-country:hover {
 }
 
 intl-tel-input .iti .iti__selected-country:focus {
+  outline: none !important;
   border-color: var(--primary-blue) !important;
+  box-shadow: 0 0 0 2px rgba(var(--primary-blue-rgb), 0.2) !important;
+}
+intl-tel-input .iti .iti__selected-country:focus-visible {
+  outline: none !important;
+  border-color: var(--primary-blue) !important;
+  box-shadow: 0 0 0 2px rgba(var(--primary-blue-rgb), 0.2) !important;
 }
 
 intl-tel-input .iti .iti__selected-country-primary {
@@ -33,6 +40,7 @@ intl-tel-input .iti .iti__selected-country-primary {
   gap: 6px;
   padding-right: 8px;
 }
+
 
 intl-tel-input .iti .iti__arrow {
   width: 0;
@@ -201,6 +209,11 @@ intl-tel-input .iti .iti__tel-input:hover {
 }
 
 intl-tel-input .iti .iti__tel-input:focus {
+  border-color: var(--border-input-focus) !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+  outline: none;
+}
+intl-tel-input .iti .iti__tel-input:focus-visible {
   border-color: var(--border-input-focus) !important;
   box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
   outline: none;
