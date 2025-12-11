@@ -11,7 +11,7 @@
   font-weight: 700;
   font-size: clamp(28px, 4vw, 35px);
   color: var(--text-h1);
-  box-shadow: 0 2px 8px rgba(var(--shadow-color), 0.12);
+  box-shadow: 0px 7px 7px -3px rgba(0,0,0,0.32);
   will-change: box-shadow;
   transition: box-shadow 0.3s ease;
 }
