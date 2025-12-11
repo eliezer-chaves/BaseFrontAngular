@@ -258,7 +258,7 @@ export class CreateAccountPageComponent implements OnInit {
 					this.isLoading = false;
 				},
 				error: (err) => {
-					
+
 					const { title, message } = this.errorTranslationService.translateBackendError(err);
 
 					this.notificationService.error(title, message);
@@ -274,7 +274,7 @@ export class CreateAccountPageComponent implements OnInit {
 
 		const body = {
 			id_token: idToken,
-		
+
 		};
 
 		this.authService.registerOAuth(body).subscribe({
@@ -293,7 +293,7 @@ export class CreateAccountPageComponent implements OnInit {
 	// NOVO MÉTODO: Recebe o token do Google e inicia o fluxo de registro/login
 	handleCredentialResponse(response: any) {
 		const idToken = response.credential;
-		
+
 		if (idToken) {
 			const phone = this.phoneNumber || null; // Pega o telefone do campo (se preenchido)
 			this.registerOAuth(idToken, phone);

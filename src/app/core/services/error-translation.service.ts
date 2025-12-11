@@ -13,7 +13,9 @@ export class ErrorTranslationService {
     'invalid_credentials': 'errors.types.invalidCredentials.type',
     "missing_credentials": 'errors.types.missingCredentials.type',
     "user_not_found": 'errors.types.userNotFound.type',
-    "phone_already_registered": 'errors.types.phoneAlreadyRegistered.type'
+    "phone_already_registered": 'errors.types.phoneAlreadyRegistered.type',
+    'no_connection_api': 'errors.types.noConnectionApi.type'
+
 
   };
 
@@ -22,7 +24,10 @@ export class ErrorTranslationService {
     'internal_server_error': 'errors.types.internalServerError.title',
     'invalid_credentials': 'errors.types.invalidCredentials.title',
     "missing_credentials": 'errors.types.missingCredentials.title',
-    "phone_already_registered": 'errors.types.phoneAlreadyRegistered.title'
+    "phone_already_registered": 'errors.types.phoneAlreadyRegistered.title',
+    'no_connection_api': 'errors.types.noConnectionApi.title'
+
+
 
 
   };
@@ -32,7 +37,9 @@ export class ErrorTranslationService {
     'internal_server_error': 'errors.types.internalServerError.message',
     'invalid_credentials': 'errors.types.invalidCredentials.message',
     "missing_credentials": 'errors.types.missingCredentials.message',
-    "phone_already_registered": 'errors.types.phoneAlreadyRegistered.message'
+    "phone_already_registered": 'errors.types.phoneAlreadyRegistered.message',
+    'no_connection_api': 'errors.types.noConnectionApi.message'
+
 
 
   };

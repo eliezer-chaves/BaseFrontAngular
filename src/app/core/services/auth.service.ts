@@ -213,12 +213,20 @@ export class AuthService {
 
 	// Tratamento de erros estruturado
 	private handleError(error: any) {
-	
+
 		// const title = error?.error?.detail.title
 		// const message = error?.error?.detail.message
 		// const type = error?.error?.detail.type
+		if (error?.error?.detail) {
+			return throwError(() => error.error.detail);
+		}
 
-		return throwError(() => error.error.detail)
+		return throwError(() => ({
+			type: "no_connection_api",
+			title: "Conexão indisponível",
+			message: "Não foi possível conectar ao servidor. Verifique sua internet ou tente novamente mais tarde."
+		}));
+
 
 	}
 
