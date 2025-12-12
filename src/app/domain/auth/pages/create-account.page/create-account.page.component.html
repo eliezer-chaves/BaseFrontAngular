@@ -25,7 +25,7 @@
                 <nz-form-label class="custom-label">{{'domain.auth.pages.createAccount.labelLastName' |
                     transloco}}</nz-form-label>
                 <nz-form-control [nzErrorTip]="lastNameErrorTpl">
-                    <input nz-input formControlName="usr_last_name" 
+                    <input nz-input formControlName="usr_last_name"
                         placeholder="{{'domain.auth.pages.createAccount.placeholderLastName' | transloco}}" />
                     <ng-template #lastNameErrorTpl let-control>
                         {{ control.errors?.['required'] ? ('domain.auth.pages.createAccount.errorLastName' | transloco)
@@ -69,10 +69,9 @@
         <nz-form-item class="mt-3">
             <nz-form-label>{{'domain.auth.pages.createAccount.labelPassword' | transloco}}</nz-form-label>
             <nz-form-control>
-                <nz-input-group [nzSuffix]="suffixTemplatePassword">
-                    <input [type]="passwordVisible ? 'text' : 'password'" nz-input formControlName="usr_password"
-                        placeholder="••••••••" (input)="onPasswordInput()" />
-                </nz-input-group>
+                <nz-input-password>
+                    <input nz-input placeholder="••••••••" formControlName="usr_password" (input)="onPasswordInput()" />
+                </nz-input-password>
 
                 <!-- Requisitos da Senha -->
                 @if (validateForm.get('usr_password')?.dirty || hasTyped) {
@@ -136,20 +135,14 @@
                 }
 
             </nz-form-control>
-
-            <ng-template #suffixTemplatePassword>
-                <span nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
-                    (click)="passwordVisible = !passwordVisible" class="ant-input-password-icon"></span>
-            </ng-template>
         </nz-form-item>
 
         <nz-form-item class="mt-3">
             <nz-form-label>{{'domain.auth.pages.createAccount.labelConfirmPassword' | transloco}}</nz-form-label>
             <nz-form-control [nzErrorTip]="confirmPasswordErrorTpl">
-                <nz-input-group [nzSuffix]="suffixTemplateConfirmPassword">
-                    <input [type]="confirmPasswordVisible ? 'text' : 'password'" nz-input
-                        formControlName="usr_password_confirmation" placeholder="••••••••" />
-                </nz-input-group>
+                <nz-input-password>
+                    <input nz-input formControlName="usr_password_confirmation" placeholder="••••••••" />
+                </nz-input-password>
 
                 <ng-template #confirmPasswordErrorTpl let-control>
                     {{ control.errors?.['required'] ? ('domain.auth.pages.createAccount.errorConfirmPasswordRequired' |
@@ -158,11 +151,6 @@
                     transloco) : '' }}
                 </ng-template>
             </nz-form-control>
-
-            <ng-template #suffixTemplateConfirmPassword>
-                <span nz-icon [nzType]="confirmPasswordVisible ? 'eye-invisible' : 'eye'"
-                    (click)="confirmPasswordVisible = !confirmPasswordVisible" class="ant-input-password-icon"></span>
-            </ng-template>
         </nz-form-item>
 
         <nz-form-item class="mt-4">
@@ -175,7 +163,8 @@
         </nz-form-item>
         <div class="text-center mt-1">
             <span class="text-link">{{'domain.auth.pages.createAccount.textCreateAccount' | transloco}}</span>
-            <a routerLink="/auth/login" class="link-primary">{{'domain.auth.pages.createAccount.linkLogin' | transloco}}</a>
+            <a routerLink="/auth/login" class="link-primary">{{'domain.auth.pages.createAccount.linkLogin' |
+                transloco}}</a>
         </div>
     </form>
     <nz-divider style="margin: 16px !important;"></nz-divider>

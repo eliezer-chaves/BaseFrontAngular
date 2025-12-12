@@ -9,13 +9,13 @@ body {
 h1 {
   color: var(--text-h1);
   font-weight: 700;
-  font-size: clamp(28px, 4vw, 35px);
+  font-size: clamp(20px, 4vw, 25px);
 }
 
 h2 {
   color: var(--text-h2);
   font-weight: 400;
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(14px, 2vw, 18px);
 }
 /* =========================================================
    INPUT NORMAL
@@ -418,4 +418,14 @@ nz-avatar {
 .ant-dropdown-menu-item-divider{
   height: 0.5px;
   background-color: var(--border);
+}
+
+
+.auth-card {
+  min-width: 340px;
+  max-width: 400px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: var(--padding-3) var(--padding-2);
+  border: 1px solid var(--card-border);
 }

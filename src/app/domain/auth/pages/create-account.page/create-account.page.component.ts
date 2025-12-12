@@ -55,7 +55,7 @@ declare const google: any;
 		NzDividerComponent,
 		ButtonLanguageComponent,
 		ButtonThemeComponent,
-		IntlTelInputComponent
+		IntlTelInputComponent,
 	],
 	templateUrl: './create-account.page.component.html',
 	styleUrl: './create-account.page.component.css'

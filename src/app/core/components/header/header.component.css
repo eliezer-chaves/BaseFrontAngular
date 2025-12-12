@@ -9,7 +9,7 @@
   height: var(--header-height);
   background-color: var(--header-bg);
   font-weight: 700;
-  font-size: clamp(28px, 4vw, 35px);
+  font-size: clamp(22px, 4vw, 27px);
   color: var(--text-h1);
   box-shadow: 0px 7px 7px -3px rgba(0,0,0,0.32);
   will-change: box-shadow;
