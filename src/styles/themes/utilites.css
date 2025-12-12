@@ -41,3 +41,4 @@
 .text-center { text-align: center; }
 .text-end { text-align: right; }
 .d-flex-center { display: flex; justify-content: center; align-items: center; }
+.text-sm{font-size: 0.875rem; color: var(--text-gray); line-height: 1.5; font-weight: 400; letter-spacing: 0.3px;}

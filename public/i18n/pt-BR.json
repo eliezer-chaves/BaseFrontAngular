@@ -69,7 +69,8 @@
           "cardTitle": "Valide o código",
           "cardSubTitle": "Um email com o código foi enviado para você.",
           "buttonValidateCode": "Confirmar",
-          "linkGetNewCode": "Pedir novo código"
+          "linkGetNewCode": "Pedir novo código",
+          "textCodeSendedTo":  "Código enviado para: "
         }
       },
       "components": {

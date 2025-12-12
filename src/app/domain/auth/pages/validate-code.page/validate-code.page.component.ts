@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators, ɵInternalFormsSharedModule } from '@angular/forms';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
@@ -22,10 +22,11 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './validate-code.page.component.html',
   styleUrl: './validate-code.page.component.css',
 })
-export class ValidateCodePageComponent {
+export class ValidateCodePageComponent implements OnInit {
   loadingService = inject(LoadingService);
-
   isLoading = false;
+
+  recoveryEmail: string | null = null;
 
   private fb = inject(NonNullableFormBuilder);
 
@@ -37,6 +38,11 @@ export class ValidateCodePageComponent {
     private router: Router
 
   ) { }
+
+  ngOnInit(): void {
+    if (sessionStorage.getItem("recovery_email"))
+      this.recoveryEmail = sessionStorage.getItem("recovery_email");
+  }
 
   validateForm = this.fb.group({
     code: this.fb.control('', [
@@ -107,7 +113,5 @@ export class ValidateCodePageComponent {
   private removeRecoveryCookie() {
     document.cookie = "recovery_flow=; path=/; max-age=0; secure; samesite=none";
   }
-
-
 
 }

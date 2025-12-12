@@ -69,7 +69,8 @@
           "cardTitle": "Validate the code",
           "cardSubTitle": "An email with the code has been sent to you.",
           "buttonValidateCode": "Confirm",
-          "linkGetNewCode": "Get a new code"
+          "linkGetNewCode": "Get a new code",
+          "textCodeSendedTo":  "Code sent to: "
         }
       },
       "components": {

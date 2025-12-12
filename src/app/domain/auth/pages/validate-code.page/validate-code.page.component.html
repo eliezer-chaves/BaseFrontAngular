@@ -7,14 +7,20 @@
     <h2 class="text-center mt-1">
         {{'domain.auth.pages.validateCode.cardSubTitle'| transloco}}
     </h2>
-    <form nz-form [nzLayout]="'vertical'" [formGroup]="validateForm" (ngSubmit)="submitForm()" class="mt-2">
-        <nz-form-item class="mt-3">
+
+    <form nz-form [nzLayout]="'vertical'" [formGroup]="validateForm" (ngSubmit)="submitForm()" class="mt-1">
+        <nz-form-item class="mt-1">
             <nz-form-control>
                 <nz-input-otp [nzLength]="6" class="mt-2 otp-small" formControlName="code"
                     (keydown)="blockNonNumeric($event)"></nz-input-otp>
             </nz-form-control>
         </nz-form-item>
-        <nz-form-item class="mt-2">
+        @if(recoveryEmail){
+        <p class="mt-1 text-sm">
+            {{'domain.auth.pages.validateCode.textCodeSendedTo' | transloco }} <b>{{ recoveryEmail }}</b>
+        </p>
+        }
+        <nz-form-item >
             <nz-form-control>
                 <button nz-button nzType="primary" nzBlock class="mt-2" [nzLoading]="isLoading"
                     [disabled]="!validateForm.valid || isLoading">

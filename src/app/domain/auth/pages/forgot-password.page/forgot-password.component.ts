@@ -193,7 +193,10 @@ export class ForgotPasswordPageComponent implements OnDestroy {
               title: "Email Sent",
               message: "Your email has been sent successfully!"
             };
-
+            const {email} = response.data
+            if(email){
+              sessionStorage.setItem("recovery_email", email)
+            }
             const { title, message } = this.errorTranslationService.translateBackendError(emailSend);
             this.notificationService.success(title, message);
 
