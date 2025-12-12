@@ -25,7 +25,13 @@ import { LoadingService } from '../../../../shared/services/loading.service';
 
 @Component({
   selector: 'app-forgot-password',
-  imports: [RouterLink, ReactiveFormsModule, FormsModule, NzFormModule, NzSelectModule, NzGridModule, NzDatePickerModule, NzRadioModule, NzInputModule, NzCheckboxModule, NzButtonModule, NzIconModule, NzInputNumberModule, NzTypographyModule, NzFlexModule, TranslocoModule, NzDividerComponent, ButtonLanguageComponent, ButtonThemeComponent],
+  imports: [
+    RouterLink, ReactiveFormsModule, FormsModule, NzFormModule,
+    NzSelectModule, NzGridModule, NzDatePickerModule, NzRadioModule,
+    NzInputModule, NzCheckboxModule, NzButtonModule, NzIconModule,
+    NzInputNumberModule, NzTypographyModule, NzFlexModule, TranslocoModule,
+    NzDividerComponent, ButtonLanguageComponent, ButtonThemeComponent
+  ],
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.css',
 })
@@ -34,14 +40,17 @@ export class ForgotPasswordPageComponent implements OnDestroy {
   isLoading = false;
   minLenghtPassword: number = environment.passwordMinLenght;
 
-  // Controle do timer
+  // Controle do timer (agora sincronizado com backend)
   countdown: number = 0;
+  isBlocked: boolean = false;
+  attemptsRemaining: number = 0;
+  maxAttempts: number = 3;
+
   private countdownInterval: any;
-  private readonly COOLDOWN_KEY = 'email_resend_cooldown';
-  private readonly COOLDOWN_DURATION = 60; // 60 segundos
+  private readonly RATE_LIMIT_KEY = 'email_rate_limit';
 
   private fb = inject(NonNullableFormBuilder);
-  
+
   constructor(
     private authService: AuthService,
     private notificationService: NzNotificationService,
@@ -49,33 +58,42 @@ export class ForgotPasswordPageComponent implements OnDestroy {
     private errorTranslationService: ErrorTranslationService,
     private router: Router
   ) {
-    this.checkExistingCooldown();
+    this.checkExistingRateLimit();
   }
 
   validateForm = this.fb.group({
     usr_email: this.fb.control('', [Validators.required, Validators.email]),
   });
 
-  // Verifica se existe um cooldown ativo ao carregar o componente
-  private checkExistingCooldown(): void {
-    const cooldownEnd = localStorage.getItem(this.COOLDOWN_KEY);
-    if (cooldownEnd) {
-      const remaining = Math.floor((parseInt(cooldownEnd) - Date.now()) / 1000);
-      if (remaining > 0) {
-        this.startCountdown(remaining);
-      } else {
-        localStorage.removeItem(this.COOLDOWN_KEY);
+  // Verifica se existe um rate limit ativo (pode ser do backend ou local)
+  private checkExistingRateLimit(): void {
+    const rateLimitData = localStorage.getItem(this.RATE_LIMIT_KEY);
+    if (rateLimitData) {
+      try {
+        const data = JSON.parse(rateLimitData);
+
+        if (data.blocked_until) {
+          const blockedUntil = new Date(data.blocked_until);
+          const now = new Date();
+
+          if (blockedUntil > now) {
+            const remainingSeconds = Math.floor((blockedUntil.getTime() - now.getTime()) / 1000);
+            this.startCountdown(remainingSeconds, true);
+          } else {
+            // Expirou, limpa
+            localStorage.removeItem(this.RATE_LIMIT_KEY);
+          }
+        }
+      } catch (e) {
+        localStorage.removeItem(this.RATE_LIMIT_KEY);
       }
     }
   }
 
   // Inicia o contador regressivo
-  private startCountdown(seconds: number = this.COOLDOWN_DURATION): void {
+  private startCountdown(seconds: number, blocked: boolean = false): void {
     this.countdown = seconds;
-    
-    // Salva o tempo de expiração no localStorage
-    const expirationTime = Date.now() + (seconds * 1000);
-    localStorage.setItem(this.COOLDOWN_KEY, expirationTime.toString());
+    this.isBlocked = blocked;
 
     // Limpa qualquer intervalo anterior
     if (this.countdownInterval) {
@@ -85,22 +103,86 @@ export class ForgotPasswordPageComponent implements OnDestroy {
     // Inicia o intervalo
     this.countdownInterval = setInterval(() => {
       this.countdown--;
-      
+
       if (this.countdown <= 0) {
         clearInterval(this.countdownInterval);
-        localStorage.removeItem(this.COOLDOWN_KEY);
+        this.isBlocked = false;
+        localStorage.removeItem(this.RATE_LIMIT_KEY);
       }
     }, 1000);
   }
 
+  // Processa informações de rate limit do backend
+  private handleRateLimitInfo(data: any): void {
+    if (data.rate_limit) {
+      this.attemptsRemaining = data.rate_limit.remaining_attempts;
+      this.maxAttempts = data.rate_limit.max_attempts;
+
+      if (this.attemptsRemaining === 1) {
+        this.notificationService.warning(
+          this.translocoService.translate('domain.auth.pages.forgotPassword.rateLimitWarningTitle'),
+          this.translocoService.translate('domain.auth.pages.forgotPassword.lastAttempt')
+        );
+      } else if (this.attemptsRemaining > 1) {
+        this.notificationService.warning(
+          this.translocoService.translate('domain.auth.pages.forgotPassword.rateLimitWarningTitle'),
+          this.translocoService.translate('domain.auth.pages.forgotPassword.attemptsRemaining', {
+            remaining: this.attemptsRemaining,
+            max: this.maxAttempts
+          })
+        );
+      }
+
+    }
+  }
+
+  // Processa erro de rate limit excedido
+  private handleRateLimitError(error: any): void {
+    console.log(">>> ENTROU NO handleRateLimitError <<<");
+
+    const detail = error.error?.detail || error.error;
+
+    if (detail.blocked_until && detail.remaining_seconds) {
+      // Salva no localStorage para persistir entre recargas
+      localStorage.setItem(this.RATE_LIMIT_KEY, JSON.stringify({
+        blocked_until: detail.blocked_until,
+        remaining_seconds: detail.remaining_seconds
+      }));
+
+      // Inicia o countdown
+      this.startCountdown(detail.remaining_seconds, true);
+
+      // Mostra notificação customizada
+      const minutes = Math.ceil(detail.remaining_seconds / 60);
+      this.notificationService.error(
+        this.translocoService.translate('domain.auth.pages.forgotPassword.rateLimitBlockedTitle'),
+        this.translocoService.translate('domain.auth.pages.forgotPassword.rateLimitBlockedMessage', {
+          minutes: minutes
+        }),
+        { nzDuration: 5000 }
+      );
+    }
+  }
+
   submitForm() {
-    if (this.validateForm.valid && this.countdown === 0) {
+    if (this.validateForm.valid && !this.isBlocked) {
       this.isLoading = true;
 
       const { usr_email } = this.validateForm.value;
       if (usr_email) {
         this.authService.sendEmailCode(usr_email).subscribe({
-          next: () => {
+          next: (response) => {
+            // Após enviar e-mail com sucesso
+            this.startCountdown(60, true);
+            localStorage.setItem(this.RATE_LIMIT_KEY, JSON.stringify({
+              blocked_until: new Date(Date.now() + 60000).toISOString(),
+              remaining_seconds: 60
+            }));
+
+
+            // Processa rate limit info (tentativas restantes)
+            this.handleRateLimitInfo(response);
+
             const emailSend = {
               type: "email_send",
               title: "Email Sent",
@@ -111,23 +193,38 @@ export class ForgotPasswordPageComponent implements OnDestroy {
             this.notificationService.success(title, message);
 
             this.isLoading = false;
-            
-            // Inicia o cooldown de 60 segundos
-            this.startCountdown();
-            
+
             // Email existente → continuar fluxo
             localStorage.setItem('reset_email', usr_email);
-            this.router.navigate(['/auth/validate-code']);
+            //this.router.navigate(['/auth/validate-code']);
           },
           error: (err) => {
-            const { title, message } = this.errorTranslationService.translateBackendError(err);
-            this.notificationService.error(title, message);
             this.isLoading = false;
+
+            // Verifica se é erro de rate limit (429)
+            if (err.status === 429) {
+              this.handleRateLimitError(err);
+            } else {
+              // Erro normal
+              const { title, message } = this.errorTranslationService.translateBackendError(err);
+              this.notificationService.error(title, message);
+            }
           }
         });
       }
+    } else if (this.isBlocked) {
+      // Usuário tentou clicar enquanto bloqueado
+      const minutes = Math.ceil(this.countdown / 60);
+      console.log("minutes:", minutes);
+
+      this.notificationService.warning(
+        this.translocoService.translate('domain.auth.pages.forgotPassword.rateLimitStillBlockedTitle'),
+        this.translocoService.translate('domain.auth.pages.forgotPassword.rateLimitStillBlockedMessage', {
+          minutes: minutes
+        })
+      );
     } else {
-      // caso o formulário seja inválido
+      // Formulário inválido
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) control.markAsDirty();
         control.updateValueAndValidity();
@@ -135,8 +232,14 @@ export class ForgotPasswordPageComponent implements OnDestroy {
     }
   }
 
+  // Formata o tempo restante para exibição
+  getFormattedTime(): string {
+    const minutes = Math.floor(this.countdown / 60);
+    const seconds = this.countdown % 60;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  }
+
   ngOnDestroy(): void {
-    // Limpa o intervalo ao destruir o componente
     if (this.countdownInterval) {
       clearInterval(this.countdownInterval);
     }

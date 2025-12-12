@@ -3,7 +3,7 @@
     "auth": {
       "pages": {
         "login": {
-          "loginTitle": "Welcome back!",
+          "loginTitle": "Welcome Back!",
           "loginSubtitle": "Please enter your details to continue.",
           "labelEmail": "Email",
           "labelPassword": "Password",
@@ -14,7 +14,7 @@
           "errorEmailRequired": "Please enter an email.",
           "errorEmailInvalid": "Please enter a valid email.",
           "errorPasswordRequired": "Please enter a password.",
-          "errorPasswordMinLength": "Password must be at least 8 characters.",
+          "errorPasswordMinLength": "The password must be at least 8 characters long.",
           "linkForgotPassword": " Forgot your password?"
         },
         "createAccount": {
@@ -22,7 +22,7 @@
           "labelFirstName": "First Name",
           "placeholderFirstName": "John",
           "labelLastName": "Last Name",
-          "placeholderLastName": "Doe",
+          "placeholderLastName": "Smith",
           "labelPhone": "Phone",
           "labelEmail": "Email",
           "placeholderEmail": "john@email.com",
@@ -38,7 +38,7 @@
           "errorEmail": "Please enter an email.",
           "errorEmailInvalid": "Please enter a valid email.",
           "errorPassword": "Please enter a password.",
-          "errorPasswordMinLength": "Password must be at least 8 characters.",
+          "errorPasswordMinLength": "The password must be at least 8 characters long.",
           "errorConfirmPasswordRequired": "Please confirm your password.",
           "errorConfirmPassword": "Passwords do not match.",
           "passwordRequirements": {
@@ -54,7 +54,16 @@
           "subTitle": "We will send a verification code to the registered email.",
           "linkGoBackLogin": " Back to Login",
           "buttonSendCode": "Send Code",
-          "buttonWait": "You should wait..."
+          "buttonWait": "You must wait...",
+          "attemptsRemaining": "{{remaining}} of {{max}} attempts remaining",
+          "rateLimitWarningTitle": "Attention",
+          "rateLimitWarningMessage": "You have only {{remaining}} attempt(s) remaining before being blocked.",
+          "rateLimitBlockedType": "rate_limit_exceeded",
+          "rateLimitBlockedTitle": "Too Many Attempts",
+          "rateLimitBlockedMessage": "You have exceeded the maximum number of attempts. Please wait {{minutes}} minutes before trying again.",
+          "rateLimitStillBlockedTitle": "Temporarily Blocked",
+          "rateLimitStillBlockedMessage": "You still need to wait {{minutes}} minutes to try again.",
+          "lastAttempt": "This is the last attempt."
         }
       },
       "components": {
@@ -71,7 +80,7 @@
       "pages": {
         "dashboard": {
           "titleWelcome": "Welcome, ",
-          "buttonLogout": "Logout"
+          "buttonLogout": "Log Out"
         }
       }
     }
@@ -129,7 +138,7 @@
       "noConnectionApi": {
         "type": "no_connection_api",
         "title": "No Connection",
-        "message": "Unable to connect. Check your internet or try again later."
+        "message": "Could not connect. Check your internet connection or try again later."
       }
     }
   },
@@ -137,7 +146,7 @@
     "types": {
       "passwordResetEmailSent": {
         "type": "password_reset_email_sent",
-        "title": "Email sent",
+        "title": "Email Sent",
         "message": "Check your email for the reset code."
       },
       "emailCodeSent": {
@@ -148,7 +157,7 @@
       "emailSend": {
         "type": "email_send",
         "title": "Email Sent",
-        "message": "Your email has been sent successfully! Please check your inbox, and don't forget to look in your spam/junk folder just in case it ended up there."
+        "message": "Your email has been sent successfully! Please check your inbox and don't forget to check your spam/junk folder."
       }
     }
   }

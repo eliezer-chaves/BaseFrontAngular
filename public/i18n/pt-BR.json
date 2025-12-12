@@ -54,7 +54,16 @@
           "subTitle": "Enviaremos um códgio de verificação para o email cadastrado.",
           "linkGoBackLogin": " Voltar ao Login",
           "buttonSendCode": "Enviar código",
-          "buttonWait": "Você deve espear..."
+          "buttonWait": "Você deve esperar...",
+          "attemptsRemaining": "{{remaining}} de {{max}} tentativas restantes",
+          "rateLimitWarningTitle": "Atenção",
+          "rateLimitWarningMessage": "Você tem apenas {{remaining}} tentativa(s) restante(s) antes de ser bloqueado.",
+          "rateLimitBlockedType": "rate_limit_exceeded",
+          "rateLimitBlockedTitle": "Muitas Tentativas",
+          "rateLimitBlockedMessage": "Você excedeu o número máximo de tentativas. Por favor, aguarde {{minutes}} minutos antes de tentar novamente.",
+          "rateLimitStillBlockedTitle": "Bloqueado Temporariamente",
+          "rateLimitStillBlockedMessage": "Você ainda precisa aguardar {{minutes}} minutos para tentar novamente.",
+          "lastAttempt": "Esta é a última tentativa."
         }
       },
       "components": {

@@ -17,7 +17,8 @@ export class ErrorTranslationService {
     "no_connection_api": "errors.types.noConnectionApi.type",
     "password_reset_email_sent": "success.types.passwordResetEmailSent.type",
     "email_code_sent": "success.types.emailCodeSent.type",
-    "email_send": "success.types.emailSend.type"
+    "email_send": "success.types.emailSend.type",
+    "rate_limit_exceeded": "domain.auth.pages.forgotPassword.type"
 
 
   };
@@ -32,7 +33,9 @@ export class ErrorTranslationService {
     "no_connection_api": "errors.types.noConnectionApi.title",
     "password_reset_email_sent": "success.types.passwordResetEmailSent.title",
     "email_code_sent": "success.types.emailCodeSent.title",
-    "email_send": "success.types.emailSend.title"
+    "email_send": "success.types.emailSend.title",
+    "rate_limit_exceeded": "domain.auth.pages.forgotPassword.rateLimitBlockedTitle"
+
 
   };
 
@@ -46,25 +49,37 @@ export class ErrorTranslationService {
     'no_connection_api': 'errors.types.noConnectionApi.message',
     "password_reset_email_sent": "success.types.passwordResetEmailSent.message",
     "email_code_sent": "success.types.emailCodeSent.message",
-    "email_send": "success.types.emailSend.message"
+    "email_send": "success.types.emailSend.message",
+    "rate_limit_exceeded": "domain.auth.pages.forgotPassword.rateLimitBlockedMessage"
+
+
 
   };
 
 
 
   constructor(private translocoService: TranslocoService) { }
-
   translateBackendError(error: any): { title: string, message: string } {
-
-
-
     const backendError = error?.error?.detail || error?.error || error;
-
     const type = backendError?.type;
 
     const titleKey = this.TitleMap[type];
     const messageKey = this.MessageMap[type];
 
+    // Caso especial: RATE LIMIT precisa de parâmetros
+    if (type === 'rate_limit_exceeded') {
+      const remainingSeconds = backendError.remaining_seconds ?? 0;
+      const minutes = Math.ceil(remainingSeconds / 60);
+
+      return {
+        title: this.translocoService.translate(titleKey),
+        message: this.translocoService.translate(messageKey, {
+          minutes: minutes
+        })
+      };
+    }
+
+    // Normal
     if (titleKey && messageKey) {
       return {
         title: this.translocoService.translate(titleKey),
@@ -77,5 +92,6 @@ export class ErrorTranslationService {
       message: backendError?.message || 'Ocorreu um erro inesperado.'
     };
   }
+
 
 }
