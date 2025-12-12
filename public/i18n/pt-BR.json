@@ -49,11 +49,12 @@
             "commonSequence": "Evite sequências comuns do teclado"
           }
         },
-        "forgotPassword":{
+        "forgotPassword": {
           "Title": "Redefinir Senha",
           "subTitle": "Enviaremos um códgio de verificação para o email cadastrado.",
           "linkGoBackLogin": " Voltar ao Login",
-          "buttonSendCode": "Enviar Código"
+          "buttonSendCode": "Enviar código",
+          "buttonWait": "Você deve espear..."
         }
       },
       "components": {
@@ -130,11 +131,10 @@
         "title": "Sem Conexão",
         "message": "Não foi possível conectar. Verifique sua internet ou tente novamente mais tarde."
       }
-      
     }
   },
-  "success":{
-    "types":{
+  "success": {
+    "types": {
       "passwordResetEmailSent": {
         "type": "password_reset_email_sent",
         "title": "Email enviado",
@@ -144,6 +144,11 @@
         "type": "email_code_sent",
         "title": "Código Enviado",
         "message": "O código de recuperação foi enviado para seu e-mail."
+      },
+      "emailSend": {
+        "type": "email_send",
+        "title": "Email Enviado",
+        "message": "Seu e-mail foi enviado com sucesso! Por favor, verifique sua caixa de entrada e não se esqueça de conferir a pasta de spam/lixo eletrônico."
       }
     }
   }

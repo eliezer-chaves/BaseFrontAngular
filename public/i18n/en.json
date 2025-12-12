@@ -53,7 +53,8 @@
           "Title": "Reset Password",
           "subTitle": "We will send a verification code to the registered email.",
           "linkGoBackLogin": " Back to Login",
-          "buttonSendCode": "Send Code"
+          "buttonSendCode": "Send Code",
+          "buttonWait": "You should wait..."
         }
       },
       "components": {
@@ -143,6 +144,11 @@
         "type": "email_code_sent",
         "title": "Code Sent",
         "message": "The recovery code has been sent to your email."
+      },
+      "emailSend": {
+        "type": "email_send",
+        "title": "Email Sent",
+        "message": "Your email has been sent successfully! Please check your inbox, and don't forget to look in your spam/junk folder just in case it ended up there."
       }
     }
   }

@@ -16,7 +16,9 @@ export class ErrorTranslationService {
     "phone_already_registered": 'errors.types.phoneAlreadyRegistered.type',
     "no_connection_api": "errors.types.noConnectionApi.type",
     "password_reset_email_sent": "success.types.passwordResetEmailSent.type",
-    "email_code_sent": "success.types.emailCodeSent.type"
+    "email_code_sent": "success.types.emailCodeSent.type",
+    "email_send": "success.types.emailSend.type"
+
 
   };
 
@@ -26,11 +28,12 @@ export class ErrorTranslationService {
     'invalid_credentials': 'errors.types.invalidCredentials.title',
     "missing_credentials": 'errors.types.missingCredentials.title',
     "user_not_found": 'errors.types.userNotFound.title',
-
     "phone_already_registered": 'errors.types.phoneAlreadyRegistered.title',
     "no_connection_api": "errors.types.noConnectionApi.title",
     "password_reset_email_sent": "success.types.passwordResetEmailSent.title",
-    "email_code_sent": "success.types.emailCodeSent.title"
+    "email_code_sent": "success.types.emailCodeSent.title",
+    "email_send": "success.types.emailSend.title"
+
   };
 
   private MessageMap: { [key: string]: string } = {
@@ -39,11 +42,12 @@ export class ErrorTranslationService {
     'invalid_credentials': 'errors.types.invalidCredentials.message',
     "missing_credentials": 'errors.types.missingCredentials.message',
     "user_not_found": 'errors.types.userNotFound.message',
-
     "phone_already_registered": 'errors.types.phoneAlreadyRegistered.message',
     'no_connection_api': 'errors.types.noConnectionApi.message',
     "password_reset_email_sent": "success.types.passwordResetEmailSent.message",
-    "email_code_sent": "success.types.emailCodeSent.message"
+    "email_code_sent": "success.types.emailCodeSent.message",
+    "email_send": "success.types.emailSend.message"
+
   };
 
 
