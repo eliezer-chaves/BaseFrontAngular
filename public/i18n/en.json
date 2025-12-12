@@ -3,13 +3,13 @@
     "auth": {
       "pages": {
         "login": {
-          "loginTitle": "Welcome Back!",
-          "loginSubtitle": "Please enter your details to continue.",
+          "loginTitle": "Welcome back!",
+          "loginSubtitle": "Please enter your information to continue.",
           "labelEmail": "Email",
           "labelPassword": "Password",
           "placeholderEmail": "john@email.com",
           "textCreateAccount": "Don't have an account?",
-          "buttonLogin": "Log In",
+          "buttonLogin": "Login",
           "linkCreateAccount": " Create Account",
           "errorEmailRequired": "Please enter an email.",
           "errorEmailInvalid": "Please enter a valid email.",
@@ -22,7 +22,7 @@
           "labelFirstName": "First Name",
           "placeholderFirstName": "John",
           "labelLastName": "Last Name",
-          "placeholderLastName": "Smith",
+          "placeholderLastName": "Doe",
           "labelPhone": "Phone",
           "labelEmail": "Email",
           "placeholderEmail": "john@email.com",
@@ -30,7 +30,7 @@
           "labelConfirmPassword": "Confirm Password",
           "buttonCreateAccount": "Create Account",
           "textCreateAccount": "Already have an account?",
-          "linkLogin": " Log In",
+          "linkLogin": " Login",
           "errorFirstName": "Please enter your first name.",
           "errorLastName": "Please enter your last name.",
           "errorPhone": "Please enter a phone number.",
@@ -50,20 +50,26 @@
           }
         },
         "forgotPassword": {
-          "Title": "Reset Password",
-          "subTitle": "We will send a verification code to the registered email.",
+          "Title": "Forgot Password",
+          "subTitle": "We will send a verification code to your registered email.",
           "linkGoBackLogin": " Back to Login",
           "buttonSendCode": "Send Code",
           "buttonWait": "You must wait...",
-          "attemptsRemaining": "{{remaining}} of {{max}} attempts remaining",
+          "attemptsRemaining": "{{remaining}} out of {{max}} attempts remaining",
           "rateLimitWarningTitle": "Attention",
-          "rateLimitWarningMessage": "You have only {{remaining}} attempt(s) remaining before being blocked.",
+          "rateLimitWarningMessage": "You have only {{remaining}} attempt(s) left before being blocked.",
           "rateLimitBlockedType": "rate_limit_exceeded",
           "rateLimitBlockedTitle": "Too Many Attempts",
-          "rateLimitBlockedMessage": "You have exceeded the maximum number of attempts. Please wait {{minutes}} minutes before trying again.",
+          "rateLimitBlockedMessage": "You exceeded the maximum number of attempts. Please wait {{minutes}} minutes before trying again.",
           "rateLimitStillBlockedTitle": "Temporarily Blocked",
-          "rateLimitStillBlockedMessage": "You still need to wait {{minutes}} minutes to try again.",
-          "lastAttempt": "This is the last attempt."
+          "rateLimitStillBlockedMessage": "You still need to wait {{minutes}} minutes before trying again.",
+          "lastAttempt": "This is your last attempt."
+        },
+        "validateCode": {
+          "cardTitle": "Validate the code",
+          "cardSubTitle": "An email with the code has been sent to you.",
+          "buttonValidateCode": "Confirm",
+          "linkGetNewCode": "Get a new code"
         }
       },
       "components": {
@@ -80,7 +86,7 @@
       "pages": {
         "dashboard": {
           "titleWelcome": "Welcome, ",
-          "buttonLogout": "Log Out"
+          "buttonLogout": "Logout"
         }
       }
     }
@@ -108,7 +114,7 @@
       "emailAlreadyRegistered": {
         "type": "email_already_registered",
         "title": "This email is already registered.",
-        "message": "This email is already registered. Please try another email or log in."
+        "message": "This email is already registered. Please try another or sign in."
       },
       "internalServerError": {
         "type": "internal_server_error",
@@ -118,7 +124,7 @@
       "invalidCredentials": {
         "type": "invalid_credentials",
         "title": "Invalid Credentials",
-        "message": "The email or password provided is incorrect, please try again."
+        "message": "Incorrect email or password. Please try again."
       },
       "missingCredentials": {
         "type": "missing_credentials",
@@ -126,9 +132,9 @@
         "message": "Email and password are required."
       },
       "userNotFound": {
-        "type": "missing_credentials",
+        "type": "user_not_found",
         "title": "Email Not Registered",
-        "message": "The email provided is not associated with any account."
+        "message": "This email is not associated with any account."
       },
       "phoneAlreadyRegistered": {
         "type": "phone_already_registered",
@@ -138,7 +144,18 @@
       "noConnectionApi": {
         "type": "no_connection_api",
         "title": "No Connection",
-        "message": "Could not connect. Check your internet connection or try again later."
+        "message": "Could not connect. Check your internet or try again later."
+      },
+
+      "invalidOrExpiredCode": {
+        "type": "invalid_or_expired_code",
+        "title": "Invalid or Expired Code",
+        "message": "The code is invalid or has already expired. Request a new one."
+      },
+      "noResetCodeFound": {
+        "type": "no_reset_code_found",
+        "title": "No Code Found",
+        "message": "No valid reset code was found for this user."
       }
     }
   },
@@ -157,7 +174,12 @@
       "emailSend": {
         "type": "email_send",
         "title": "Email Sent",
-        "message": "Your email has been sent successfully! Please check your inbox and don't forget to check your spam/junk folder."
+        "message": "Your email was sent successfully! Check your inbox and spam folder."
+      },
+      "passwordResetCodeVerified": {
+        "type": "password_reset_code_verified",
+        "title": "Code Verified",
+        "message": "The code has been successfully validated. You can now reset your password."
       }
     }
   }

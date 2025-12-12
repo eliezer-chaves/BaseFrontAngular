@@ -164,16 +164,18 @@ export class ForgotPasswordPageComponent implements OnDestroy {
     }
   }
 
+  //Forgot Password
   submitForm() {
     if (this.validateForm.valid && !this.isBlocked) {
       this.isLoading = true;
 
       const { usr_email } = this.validateForm.value;
       if (usr_email) {
-        this.authService.sendEmailCode(usr_email).subscribe({
+        this.authService.sendResetCode(usr_email).subscribe({
           next: (response) => {
             // Após enviar e-mail com sucesso
             this.startCountdown(60, true);
+
             localStorage.setItem(this.RATE_LIMIT_KEY, JSON.stringify({
               blocked_until: new Date(Date.now() + 60000).toISOString(),
               remaining_seconds: 60
@@ -183,10 +185,13 @@ export class ForgotPasswordPageComponent implements OnDestroy {
             // Processa rate limit info (tentativas restantes)
             this.handleRateLimitInfo(response);
 
+            document.cookie = "recovery_flow=enabled; path=/; max-age=300; secure; samesite=none";
+
+
             const emailSend = {
               type: "email_send",
               title: "Email Sent",
-              message: "Your email has been sent successfully! Please check your inbox, and don't forget to look in your spam/junk folder just in case it ended up there."
+              message: "Your email has been sent successfully!"
             };
 
             const { title, message } = this.errorTranslationService.translateBackendError(emailSend);
@@ -194,9 +199,7 @@ export class ForgotPasswordPageComponent implements OnDestroy {
 
             this.isLoading = false;
 
-            // Email existente → continuar fluxo
-            localStorage.setItem('reset_email', usr_email);
-            //this.router.navigate(['/auth/validate-code']);
+            this.router.navigate(['/auth/validate-code']);
           },
           error: (err) => {
             this.isLoading = false;
@@ -215,7 +218,6 @@ export class ForgotPasswordPageComponent implements OnDestroy {
     } else if (this.isBlocked) {
       // Usuário tentou clicar enquanto bloqueado
       const minutes = Math.ceil(this.countdown / 60);
-      console.log("minutes:", minutes);
 
       this.notificationService.warning(
         this.translocoService.translate('domain.auth.pages.forgotPassword.rateLimitStillBlockedTitle'),

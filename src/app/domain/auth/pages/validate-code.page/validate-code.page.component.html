@@ -1,7 +1,41 @@
 <div class="auth-card">
 
-    <nz-flex nzVertical>
-        <h5 nz-typography>With Length (8)</h5>
-        <nz-input-otp [nzLength]="6"></nz-input-otp>
-    </nz-flex>
+
+    <h1 class="text-center">
+        {{'domain.auth.pages.validateCode.cardTitle' | transloco}}
+    </h1>
+    <h2 class="text-center mt-1">
+        {{'domain.auth.pages.validateCode.cardSubTitle'| transloco}}
+    </h2>
+    <form nz-form [nzLayout]="'vertical'" [formGroup]="validateForm" (ngSubmit)="submitForm()" class="mt-2">
+        <nz-form-item class="mt-3">
+            <nz-form-control>
+                <nz-input-otp [nzLength]="6" class="mt-2 otp-small" formControlName="code"
+                    (keydown)="blockNonNumeric($event)"></nz-input-otp>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="mt-2">
+            <nz-form-control>
+                <button nz-button nzType="primary" nzBlock class="mt-2" [nzLoading]="isLoading"
+                    [disabled]="!validateForm.valid || isLoading">
+                    {{'domain.auth.pages.validateCode.buttonValidateCode' | transloco}}
+                </button>
+            </nz-form-control>
+        </nz-form-item>
+
+
+    </form>
+    <div class="text-start text-link mt-2">
+
+        <a routerLink="/auth/forgot-password">
+            <nz-icon nzType="arrow-left" nzTheme="outline" />
+            {{'domain.auth.pages.validateCode.linkGetNewCode' | transloco}}
+        </a>
+    </div>
+
+    <div class="mt-4" style="display: flex; align-items: center; justify-content: space-between;">
+
+        <app-button-language></app-button-language>
+        <app-button-theme></app-button-theme>
+    </div>
 </div>

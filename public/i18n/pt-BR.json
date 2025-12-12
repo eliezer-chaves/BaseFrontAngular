@@ -51,7 +51,7 @@
         },
         "forgotPassword": {
           "Title": "Redefinir Senha",
-          "subTitle": "Enviaremos um códgio de verificação para o email cadastrado.",
+          "subTitle": "Enviaremos um código de verificação para o email cadastrado.",
           "linkGoBackLogin": " Voltar ao Login",
           "buttonSendCode": "Enviar código",
           "buttonWait": "Você deve esperar...",
@@ -64,6 +64,12 @@
           "rateLimitStillBlockedTitle": "Bloqueado Temporariamente",
           "rateLimitStillBlockedMessage": "Você ainda precisa aguardar {{minutes}} minutos para tentar novamente.",
           "lastAttempt": "Esta é a última tentativa."
+        },
+        "validateCode": {
+          "cardTitle": "Valide o código",
+          "cardSubTitle": "Um email com o código foi enviado para você.",
+          "buttonValidateCode": "Confirmar",
+          "linkGetNewCode": "Pedir novo código"
         }
       },
       "components": {
@@ -126,7 +132,7 @@
         "message": "E-mail e senha são obrigatórios."
       },
       "userNotFound": {
-        "type": "missing_credentials",
+        "type": "user_not_found",
         "title": "E-mail Não Registrado",
         "message": "O e-mail fornecido não está associado a nenhuma conta."
       },
@@ -139,6 +145,17 @@
         "type": "no_connection_api",
         "title": "Sem Conexão",
         "message": "Não foi possível conectar. Verifique sua internet ou tente novamente mais tarde."
+      },
+
+      "invalidOrExpiredCode": {
+        "type": "invalid_or_expired_code",
+        "title": "Código Inválido ou Expirado",
+        "message": "O código informado é inválido ou já expirou. Solicite um novo."
+      },
+      "noResetCodeFound": {
+        "type": "no_reset_code_found",
+        "title": "Nenhum Código Encontrado",
+        "message": "Não foi possível localizar um código válido para este usuário."
       }
     }
   },
@@ -157,7 +174,12 @@
       "emailSend": {
         "type": "email_send",
         "title": "Email Enviado",
-        "message": "Seu e-mail foi enviado com sucesso! Por favor, verifique sua caixa de entrada e não se esqueça de conferir a pasta de spam/lixo eletrônico."
+        "message": "Seu e-mail foi enviado com sucesso! Por favor, verifique sua caixa de entrada e também a pasta de spam."
+      },
+      "passwordResetCodeVerified": {
+        "type": "password_reset_code_verified",
+        "title": "Código Validado",
+        "message": "O código foi validado com sucesso. Você pode redefinir sua senha."
       }
     }
   }

@@ -92,10 +92,23 @@ export class AuthService {
 		);
 	}
 
-	sendEmailCode(usr_email: string): Observable<any> {
+	sendResetCode(usr_email: string): Observable<any> {
 		return this.http.post<any>(
-			`${this.API_URL}/auth/send-email-code`,
+			`${this.API_URL}/auth/send-reset-code`,
 			{ usr_email },
+			{ withCredentials: true }
+		).pipe(
+			// tap(() => {
+			// 	//this.router.navigate(['/reset-password']);
+			// }),
+			catchError(error => this.handleError(error))
+		);
+	}
+
+	sendCodeToValidation(code: string): Observable<any>{
+		return this.http.post<any>(
+			`${this.API_URL}/auth/validate-code`,
+			{ code },
 			{ withCredentials: true }
 		).pipe(
 			// tap(() => {

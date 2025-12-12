@@ -1,23 +1,21 @@
-// src/app/domain/auth/guards/validate-code.guard.ts
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ValidateCodeGuard implements CanActivate {
+@Injectable({ providedIn: 'root' })
+export class RecoveryFlowGuard implements CanActivate {
 
   constructor(private router: Router) {}
 
-  canActivate(): boolean {
-    const email = localStorage.getItem('reset_email');
+  private hasFlowCookie(): boolean {
+    return document.cookie.split('; ')
+      .some(row => row.startsWith('recovery_flow='));
+  }
 
-    if (email) {
-      return true; // usuário pode acessar a página
-    } else {
-      // usuário tentou acessar direto → redireciona para login ou forgot-password
+  canActivate(): boolean {
+    if (!this.hasFlowCookie()) {
       this.router.navigate(['/auth/forgot-password']);
       return false;
     }
+    return true;
   }
 }

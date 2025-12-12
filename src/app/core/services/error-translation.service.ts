@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 
+
 @Injectable({ providedIn: 'root' })
-
-
 export class ErrorTranslationService {
 
-  // Mapeamento dos tipos de erro para chaves de tradução
   private TypeMap: { [key: string]: string } = {
     'email_already_registered': 'errors.types.emailAlreadyRegistered.type',
     'internal_server_error': 'errors.types.internalServerError.type',
@@ -18,9 +16,12 @@ export class ErrorTranslationService {
     "password_reset_email_sent": "success.types.passwordResetEmailSent.type",
     "email_code_sent": "success.types.emailCodeSent.type",
     "email_send": "success.types.emailSend.type",
-    "rate_limit_exceeded": "domain.auth.pages.forgotPassword.type"
+    "rate_limit_exceeded": "domain.auth.pages.forgotPassword.type",
 
-
+    // NOVOS TIPOS
+    "invalid_or_expired_code": "errors.types.invalidOrExpiredCode.type",
+    "password_reset_code_verified": "success.types.passwordResetCodeVerified.type",
+    "no_reset_code_found": "errors.types.noResetCodeFound.type"
   };
 
   private TitleMap: { [key: string]: string } = {
@@ -34,9 +35,12 @@ export class ErrorTranslationService {
     "password_reset_email_sent": "success.types.passwordResetEmailSent.title",
     "email_code_sent": "success.types.emailCodeSent.title",
     "email_send": "success.types.emailSend.title",
-    "rate_limit_exceeded": "domain.auth.pages.forgotPassword.rateLimitBlockedTitle"
+    "rate_limit_exceeded": "domain.auth.pages.forgotPassword.rateLimitBlockedTitle",
 
-
+    // NOVOS TIPOS
+    "invalid_or_expired_code": "errors.types.invalidOrExpiredCode.title",
+    "password_reset_code_verified": "success.types.passwordResetCodeVerified.title",
+    "no_reset_code_found": "errors.types.noResetCodeFound.title"
   };
 
   private MessageMap: { [key: string]: string } = {
@@ -50,15 +54,16 @@ export class ErrorTranslationService {
     "password_reset_email_sent": "success.types.passwordResetEmailSent.message",
     "email_code_sent": "success.types.emailCodeSent.message",
     "email_send": "success.types.emailSend.message",
-    "rate_limit_exceeded": "domain.auth.pages.forgotPassword.rateLimitBlockedMessage"
+    "rate_limit_exceeded": "domain.auth.pages.forgotPassword.rateLimitBlockedMessage",
 
-
-
+    // NOVOS TIPOS
+    "invalid_or_expired_code": "errors.types.invalidOrExpiredCode.message",
+    "password_reset_code_verified": "success.types.passwordResetCodeVerified.message",
+    "no_reset_code_found": "errors.types.noResetCodeFound.message"
   };
 
-
-
   constructor(private translocoService: TranslocoService) { }
+
   translateBackendError(error: any): { title: string, message: string } {
     const backendError = error?.error?.detail || error?.error || error;
     const type = backendError?.type;
@@ -66,20 +71,16 @@ export class ErrorTranslationService {
     const titleKey = this.TitleMap[type];
     const messageKey = this.MessageMap[type];
 
-    // Caso especial: RATE LIMIT precisa de parâmetros
     if (type === 'rate_limit_exceeded') {
       const remainingSeconds = backendError.remaining_seconds ?? 0;
       const minutes = Math.ceil(remainingSeconds / 60);
 
       return {
         title: this.translocoService.translate(titleKey),
-        message: this.translocoService.translate(messageKey, {
-          minutes: minutes
-        })
+        message: this.translocoService.translate(messageKey, { minutes })
       };
     }
 
-    // Normal
     if (titleKey && messageKey) {
       return {
         title: this.translocoService.translate(titleKey),
@@ -92,6 +93,4 @@ export class ErrorTranslationService {
       message: backendError?.message || 'Ocorreu um erro inesperado.'
     };
   }
-
-
 }
