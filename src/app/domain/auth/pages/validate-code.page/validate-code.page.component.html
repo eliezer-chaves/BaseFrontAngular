@@ -11,16 +11,20 @@
     <form nz-form [nzLayout]="'vertical'" [formGroup]="validateForm" (ngSubmit)="submitForm()" class="mt-1">
         <nz-form-item class="mt-1">
             <nz-form-control>
-                <nz-input-otp [nzLength]="6" class="mt-2 otp-small" formControlName="code"
-                    (keydown)="blockNonNumeric($event)"></nz-input-otp>
+                <div class="otp-center">
+                    <nz-input-otp [nzLength]="6" class="my-2 otp-small" formControlName="code"
+                        (keydown)="blockNonNumeric($event)">
+                    </nz-input-otp>
+                </div>
             </nz-form-control>
         </nz-form-item>
+
         @if(recoveryEmail){
         <p class="mt-1 text-sm">
             {{'domain.auth.pages.validateCode.textCodeSendedTo' | transloco }} <b>{{ recoveryEmail }}</b>
         </p>
         }
-        <nz-form-item >
+        <nz-form-item>
             <nz-form-control>
                 <button nz-button nzType="primary" nzBlock class="mt-2" [nzLoading]="isLoading"
                     [disabled]="!validateForm.valid || isLoading">
@@ -28,16 +32,20 @@
                 </button>
             </nz-form-control>
         </nz-form-item>
-
-
     </form>
-    <div class="text-start text-link mt-2">
+    @if(remainingTime){
+    <p class="mt-1 text-sm">
+        {{"domain.auth.pages.validateCode.codeExpiresMessage" | transloco}}{{ remainingTime
+        }}{{"domain.auth.pages.validateCode.redirectingMessage" | transloco}}
+    </p>
+    }
+    <!-- <div class="text-start text-link mt-2">
 
         <a routerLink="/auth/forgot-password">
             <nz-icon nzType="arrow-left" nzTheme="outline" />
             {{'domain.auth.pages.validateCode.linkGetNewCode' | transloco}}
         </a>
-    </div>
+    </div> -->
 
     <div class="mt-4" style="display: flex; align-items: center; justify-content: space-between;">
 

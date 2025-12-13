@@ -422,7 +422,7 @@ nz-avatar {
 
 
 .auth-card {
-  min-width: 340px;
+  min-width: 300px;
   max-width: 400px;
   background-color: var(--card-bg);
   border-radius: 8px;

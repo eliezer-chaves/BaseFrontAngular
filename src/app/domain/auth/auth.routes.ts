@@ -1,6 +1,6 @@
 // src/app/domain/auth/auth.routes.ts
 import { Routes } from '@angular/router';
-import { RecoveryFlowGuard } from '../../core/guards/validate-code.guard';
+import {  ValidateCodeGuard } from '../../core/guards/validate-code.guard';
 import { ResetPasswordGuard } from '../../core/guards/reset-password.guard';
 
 export const AUTH_ROUTES: Routes = [
@@ -24,7 +24,7 @@ export const AUTH_ROUTES: Routes = [
   {
     path: 'validate-code',
     loadComponent: () => import('../../domain/auth/pages/validate-code.page/validate-code.page.component').then(m => m.ValidateCodePageComponent),
-    canActivate: [RecoveryFlowGuard]
+    canActivate: [ValidateCodeGuard]
   },
   {
     path: 'reset-password',

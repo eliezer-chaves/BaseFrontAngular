@@ -15,6 +15,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { ErrorTranslationService } from '../../../../core/services/error-translation.service';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { Router, RouterLink } from '@angular/router';
+import { EmailService } from '../../services/email.service';
 
 @Component({
   selector: 'app-validate-code.page',
@@ -27,6 +28,9 @@ export class ValidateCodePageComponent implements OnInit {
   isLoading = false;
 
   recoveryEmail: string | null = null;
+  expiresAt: any = null;
+  remainingTime = '';
+  private timerId: any;
 
   private fb = inject(NonNullableFormBuilder);
 
@@ -35,13 +39,47 @@ export class ValidateCodePageComponent implements OnInit {
     private notificationService: NzNotificationService,
     private translocoService: TranslocoService,
     private errorTranslationService: ErrorTranslationService,
-    private router: Router
+    private router: Router,
+    private emailService: EmailService
 
   ) { }
 
   ngOnInit(): void {
-    if (sessionStorage.getItem("recovery_email"))
-      this.recoveryEmail = sessionStorage.getItem("recovery_email");
+    if (this.emailService.getEmail()) {
+      this.recoveryEmail = this.emailService.getEmail()
+      this.expiresAt = this.emailService.getExpiresAt()
+
+      const expiresAt = new Date(this.expiresAt);
+      this.startCountdown(expiresAt);
+    }
+
+  }
+  startCountdown(expiresAt: Date) {
+    const update = () => {
+      const now = new Date();
+      const diff = expiresAt.getTime() - now.getTime();
+
+      if (diff <= 0) {
+        this.remainingTime = '00:00';
+        clearInterval(this.timerId);
+        this.router.navigate(['/auth/forgot-password']);
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+
+      this.remainingTime = `${minutes
+        .toString()
+        .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    };
+
+    // 🔥 executa imediatamente
+    update();
+
+    // ⏱ depois continua a cada segundo
+    this.timerId = setInterval(update, 1000);
   }
 
   validateForm = this.fb.group({
@@ -83,19 +121,12 @@ export class ValidateCodePageComponent implements OnInit {
           next: (response) => {
             this.isLoading = false;
 
-            // Remove cookie de fluxo
-            this.removeRecoveryCookie();
-
-            // Set cookie de stage validado
-            document.cookie = "recovery_stage=validated; path=/; max-age=300; secure; samesite=none";
-
             const { title, message } = this.errorTranslationService.translateBackendError(response);
             this.notificationService.success(title, message);
 
-            // Redireciona
-            setTimeout(() => {
-              this.router.navigate(['/auth/reset-password']);
-            }, 50);
+
+            this.router.navigate(['/auth/reset-password']);
+
           },
           error: (err) => {
             this.isLoading = false;
@@ -110,8 +141,6 @@ export class ValidateCodePageComponent implements OnInit {
   }
 
 
-  private removeRecoveryCookie() {
-    document.cookie = "recovery_flow=; path=/; max-age=0; secure; samesite=none";
-  }
+
 
 }

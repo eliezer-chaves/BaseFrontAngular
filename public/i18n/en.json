@@ -70,7 +70,9 @@
           "cardSubTitle": "An email with the code has been sent to you.",
           "buttonValidateCode": "Confirm",
           "linkGetNewCode": "Get a new code",
-          "textCodeSendedTo":  "Code sent to: "
+          "textCodeSendedTo": "Code sent to: ",
+          "codeExpiresMessage": "Your code expires in ",
+          "redirectingMessage": " after you are redirected"
         }
       },
       "components": {
@@ -147,7 +149,6 @@
         "title": "No Connection",
         "message": "Could not connect. Check your internet or try again later."
       },
-
       "invalidOrExpiredCode": {
         "type": "invalid_or_expired_code",
         "title": "Invalid or Expired Code",

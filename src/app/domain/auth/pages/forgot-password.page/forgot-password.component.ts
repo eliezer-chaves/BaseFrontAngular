@@ -39,7 +39,7 @@ export class ForgotPasswordPageComponent implements OnDestroy {
   loadingService = inject(LoadingService);
   isLoading = false;
   minLenghtPassword: number = environment.passwordMinLenght;
-
+  private redirectTimeout: any;
   // Controle do timer (agora sincronizado com backend)
   countdown: number = 0;
   isBlocked: boolean = false;
@@ -181,28 +181,25 @@ export class ForgotPasswordPageComponent implements OnDestroy {
               remaining_seconds: 60
             }));
 
-
-            // Processa rate limit info (tentativas restantes)
             this.handleRateLimitInfo(response);
-
-            document.cookie = "recovery_flow=enabled; path=/; max-age=300; secure; samesite=none";
-
 
             const emailSend = {
               type: "email_send",
               title: "Email Sent",
               message: "Your email has been sent successfully!"
             };
-            const {email} = response.data
-            if(email){
-              sessionStorage.setItem("recovery_email", email)
-            }
+
             const { title, message } = this.errorTranslationService.translateBackendError(emailSend);
             this.notificationService.success(title, message);
 
             this.isLoading = false;
 
-            this.router.navigate(['/auth/validate-code']);
+
+
+            this.redirectTimeout = setTimeout(() => {
+              this.router.navigate(['/auth/validate-code']);
+            }, 1000);
+
           },
           error: (err) => {
             this.isLoading = false;
@@ -247,6 +244,9 @@ export class ForgotPasswordPageComponent implements OnDestroy {
   ngOnDestroy(): void {
     if (this.countdownInterval) {
       clearInterval(this.countdownInterval);
+
     }
+    clearTimeout(this.redirectTimeout);
+
   }
 }

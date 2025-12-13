@@ -70,7 +70,9 @@
           "cardSubTitle": "Um email com o código foi enviado para você.",
           "buttonValidateCode": "Confirmar",
           "linkGetNewCode": "Pedir novo código",
-          "textCodeSendedTo":  "Código enviado para: "
+          "textCodeSendedTo":  "Código enviado para: ",
+          "codeExpiresMessage": "Seu código irá expirar em ",
+          "redirectingMessage": " após isso você será redirecionado"
         }
       },
       "components": {

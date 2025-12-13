@@ -6,17 +6,12 @@ export class ResetPasswordGuard implements CanActivate {
 
   constructor(private router: Router) {}
 
-  private hasValidatedStage(): boolean {
-    return document.cookie
-      .split('; ')
-      .some(c => c.startsWith('recovery_stage=validated'));
+  private hasValidatedStage() {
+    
   }
 
   canActivate(): boolean {
-    if (!this.hasValidatedStage()) {
-      this.router.navigate(['/auth/validate-code']);
-      return false;
-    }
+   
     return true;
   }
 }

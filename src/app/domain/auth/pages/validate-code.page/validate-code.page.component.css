@@ -1,5 +1,10 @@
 .otp-small {
-  max-width: 100%; /* ajuste como quiser */
+  max-width: 300px; /* ajuste como quiser */
   width: 100%;
-  margin: 0 auto;   /* centraliza */
+
+}
+
+.otp-center {
+  display: flex;
+  justify-content: center;
 }

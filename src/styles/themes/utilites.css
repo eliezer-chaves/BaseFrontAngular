@@ -24,6 +24,11 @@
 .me-3 { margin-right: var(--margin-3); }
 .me-4 { margin-right: var(--margin-4); }
 
+.my-1 { margin-top: var(--margin-1) !important; margin-bottom: var(--margin-1) !important;}
+.my-2 { margin-top: var(--margin-2) !important; margin-bottom: var(--margin-2) !important;}
+.my-3 { margin-top: var(--margin-3) !important; margin-bottom: var(--margin-3) !important;}
+.my-4 { margin-top: var(--margin-4) !important; margin-bottom: var(--margin-4) !important;}
+
 /* Padding */
 .p-1 { padding: var(--padding-1); }
 .p-2 { padding: var(--padding-2); }
@@ -41,4 +46,4 @@
 .text-center { text-align: center; }
 .text-end { text-align: right; }
 .d-flex-center { display: flex; justify-content: center; align-items: center; }
-.text-sm{font-size: 0.875rem; color: var(--text-gray); line-height: 1.5; font-weight: 400; letter-spacing: 0.3px;}
+.text-sm{font-size: clamp(10px, 2vw, 13px);; color: var(--text-gray); line-height: 1.5; font-weight: 400; letter-spacing: 0.3px;}
